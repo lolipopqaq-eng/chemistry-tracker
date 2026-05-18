@@ -16,9 +16,9 @@ const TEXTBOOK = {
               note: '银白色、质软、密度0.97、熔点低、保存在煤油中',
               reactions: [
                 { id: 'ch2_na1', name: 'Na + O₂（常温）', equation: '4Na + O₂ = 2Na₂O', category: '与氧气', phenomenon: '银白色金属钠表面变暗', note: '⚠ 注意条件：常温' },
-                { id: 'ch2_na2', name: 'Na + O₂（点燃）', equation: '2Na + O₂ =(点燃) Na₂O₂', category: '与氧气', phenomenon: '发出黄色火焰，生成淡黄色固体', note: '⚠ 产物颜色：淡黄色' },
+                { id: 'ch2_na2', name: 'Na + O₂（点燃）', equation: '2Na + O₂ →(点燃) Na₂O₂', category: '与氧气', phenomenon: '发出黄色火焰，生成淡黄色固体', note: '⚠ 产物颜色：淡黄色' },
                 { id: 'ch2_na3', name: 'Na + H₂O', equation: '2Na + 2H₂O = 2NaOH + H₂↑', category: '与水', phenomenon: '浮=熔=游=响=红', note: '💯 必考！浮熔游响红' },
-                { id: 'ch2_na4', name: 'Na + Cl₂', equation: '2Na + Cl₂ =(点燃) 2NaCl', category: '与氯气', phenomenon: '钠在氯气中剧烈燃烧，产生白烟', note: '⚠ 白烟是NaCl固体颗粒' },
+                { id: 'ch2_na4', name: 'Na + Cl₂', equation: '2Na + Cl₂ →(点燃) 2NaCl', category: '与氯气', phenomenon: '钠在氯气中剧烈燃烧，产生白烟', note: '⚠ 白烟是NaCl固体颗粒' },
               ],
             },
             {
@@ -102,7 +102,7 @@ const TEXTBOOK = {
                 { id: 'h02', name: 'NaHCO₃ + NaOH', equation: 'NaHCO₃ + NaOH = Na₂CO₃ + H₂O', category: '与碱', note: '酸式盐+碱=正盐' },
                 { id: 'h03', name: 'NaHCO₃少量 + Ca(OH)₂', equation: 'HCO₃⁻ + OH⁻ + Ca²⁺ = CaCO₃↓ + H₂O', category: '与碱', phenomenon: '白色沉淀', note: '⚠ 注意量！少量' },
                 { id: 'h04', name: 'NaHCO₃过量 + Ca(OH)₂', equation: '2HCO₃⁻ + 2OH⁻ + Ca²⁺ = CaCO₃↓ + CO₃²⁻ + 2H₂O', category: '与碱', phenomenon: '白色沉淀', note: '⚠ 注意量！过量' },
-                { id: 'h05', name: 'NaHCO₃受热分解', equation: '2NaHCO₃ =(加热) Na₂CO₃ + H₂O + CO₂↑', category: '分解', phenomenon: '水珠产生，气体使澄清石灰水变浑浊', note: '💯 唯一受热易分解的钠盐！必考' },
+                { id: 'h05', name: 'NaHCO₃受热分解', equation: '2NaHCO₃ →(加热) Na₂CO₃ + H₂O + CO₂↑', category: '分解', phenomenon: '水珠产生，气体使澄清石灰水变浑浊', note: '💯 唯一受热易分解的钠盐！必考' },
                 { id: 'h06', name: 'NaHCO₃ + CO₂', equation: 'NaHCO₃ + CO₂ = 不反应', category: '与CO₂', note: '不反应' },
                 { id: 'h07', name: 'NaHCO₃ + Na₂CO₃', equation: 'NaHCO₃ + Na₂CO₃ = 不反应', category: '与碳酸钠', note: '不反应' },
                 { id: 'h08', name: 'HCO₃⁻水解', equation: 'HCO₃⁻ + H₂O ⇌ H₂CO₃ + OH⁻', category: '水解', note: '💯 碱性：Na₂CO₃ > NaHCO₃' },
@@ -122,12 +122,12 @@ const TEXTBOOK = {
               icon: '🟢',
               note: '黄绿色、刺激性气味、有毒、密度>空气',
               reactions: [
-                { id: 'cl1', name: 'Cl₂ + Cu', equation: 'Cu + Cl₂ =(点燃) CuCl₂', category: '与金属', phenomenon: '棕黄色烟', note: '⚠ 产物颜色：棕黄色' },
-                { id: 'cl2', name: 'Cl₂ + H₂', equation: 'H₂ + Cl₂ =(点燃) 2HCl', category: '与非金属', phenomenon: '苍白色火焰，瓶口白雾', note: '💯 苍白色火焰' },
+                { id: 'cl1', name: 'Cl₂ + Cu', equation: 'Cu + Cl₂ →(点燃) CuCl₂', category: '与金属', phenomenon: '棕黄色烟', note: '⚠ 产物颜色：棕黄色' },
+                { id: 'cl2', name: 'Cl₂ + H₂', equation: 'H₂ + Cl₂ →(点燃) 2HCl', category: '与非金属', phenomenon: '苍白色火焰，瓶口白雾', note: '💯 苍白色火焰' },
                 { id: 'cl3', name: 'Cl₂ + H₂O', equation: 'Cl₂ + H₂O ⇌ HCl + HClO', category: '与水', note: '💯 可逆反应！' },
                 { id: 'cl4', name: 'Cl₂ + NaOH', equation: 'Cl₂ + 2NaOH = NaCl + NaClO + H₂O', category: '与碱', note: '制84消毒液' },
                 { id: 'cl5', name: 'Cl₂ + Ca(OH)₂', equation: '2Cl₂ + 2Ca(OH)₂ = CaCl₂ + Ca(ClO)₂ + 2H₂O', category: '与碱', note: '制漂白粉' },
-                { id: 'cl6', name: 'Cl₂ + Fe', equation: '2Fe + 3Cl₂ =(点燃) 2FeCl₃', category: '与金属', phenomenon: '棕褐色烟', note: '⚠ 生成Fe³⁺ 不是Fe²⁺' },
+                { id: 'cl6', name: 'Cl₂ + Fe', equation: '2Fe + 3Cl₂ →(点燃) 2FeCl₃', category: '与金属', phenomenon: '棕褐色烟', note: '⚠ 生成Fe³⁺ 不是Fe²⁺' },
                 { id: 'cl7', name: 'Cl₂ + NaBr', equation: 'Cl₂ + 2NaBr = 2NaCl + Br₂', category: '置换', phenomenon: '溶液变橙黄色', note: '💯 氧化性：Cl₂ > Br₂' },
                 { id: 'cl8', name: 'Cl₂ + KI', equation: 'Cl₂ + 2KI = 2KCl + I₂', category: '置换', phenomenon: '溶液变棕黄，淀粉变蓝', note: '💯 氧化性：Cl₂ > I₂' },
               ],
@@ -138,7 +138,7 @@ const TEXTBOOK = {
               icon: '🧴',
               note: '弱酸性、强氧化性、漂白性（不可逆）',
               reactions: [
-                { id: 'hclo1', name: 'HClO 光照分解', equation: '2HClO =(光照) 2HCl + O₂↑', category: '分解', phenomenon: '氯水颜色变浅', note: '💯 氯水需避光保存' },
+                { id: 'hclo1', name: 'HClO 光照分解', equation: '2HClO →(光照) 2HCl + O₂↑', category: '分解', phenomenon: '氯水颜色变浅', note: '💯 氯水需避光保存' },
               ],
             },
             {
@@ -147,7 +147,7 @@ const TEXTBOOK = {
               icon: '🧂',
               note: '白色晶体，易溶于水',
               reactions: [
-                { id: 'nacl1', name: '电解饱和食盐水', equation: '2NaCl + 2H₂O =(电解) 2NaOH + H₂↑ + Cl₂↑', category: '电解', phenomenon: '阴极H₂无色、阳极Cl₂黄绿色', note: '💯 氯碱工业' },
+                { id: 'nacl1', name: '电解饱和食盐水', equation: '2NaCl + 2H₂O →(电解) 2NaOH + H₂↑ + Cl₂↑', category: '电解', phenomenon: '阴极H₂无色、阳极Cl₂黄绿色', note: '💯 氯碱工业' },
               ],
             },
           ],
