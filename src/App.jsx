@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef } from 'react';
 import { useChemTracker } from './hooks/useChemTracker';
-import { REACTIONS, CATEGORIES } from './utils/reactions';
+import { REACTIONS } from './utils/reactions';
+import { NA2CO3_REACTIONS, NAHCO3_REACTIONS } from './utils/carbonate';
 import { STORAGE_KEYS, saveToStorage } from './utils/storage';
 import Stats from './components/Stats';
 import ReactionCard from './components/ReactionCard';
@@ -18,10 +19,17 @@ export default function App() {
   const [importError, setImportError] = useState(null);
   const fileInputRef = useRef(null);
 
+  const ALL_REACTIONS = useMemo(() => [...REACTIONS, ...NA2CO3_REACTIONS, ...NAHCO3_REACTIONS], []);
+  const ALL_CATEGORIES = useMemo(() => {
+    const cats = new Map();
+    ALL_REACTIONS.forEach(r => cats.set(r.category, true));
+    return ['全部', ...cats.keys()];
+  }, [ALL_REACTIONS]);
+
   const filteredReactions = useMemo(() => {
-    if (categoryFilter === '全部') return REACTIONS;
-    return REACTIONS.filter(r => r.category === categoryFilter);
-  }, [categoryFilter]);
+    if (categoryFilter === '全部') return ALL_REACTIONS;
+    return ALL_REACTIONS.filter(r => r.category === categoryFilter);
+  }, [categoryFilter, ALL_REACTIONS]);
 
   // Export
   const handleExport = () => {
@@ -81,15 +89,15 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>🧪 NaOH 反应方程式复习</h1>
-        <div className="subtitle">氢氧化钠全反应汇总 · 高考必背版 · 共 {REACTIONS.length} 个反应</div>
+        <h1>🧪 高考必背反应复习</h1>
+        <div className="subtitle">NaOH · Na₂CO₃ · NaHCO₃ 全反应汇总 · 共 {ALL_REACTIONS.length} 个反应</div>
       </header>
 
       <Stats stats={stats} />
 
       <div className="toolbar">
         <div className="category-tabs">
-          {CATEGORIES.map(c => (
+          {ALL_CATEGORIES.map(c => (
             <button
               key={c}
               className={categoryFilter === c ? 'active' : ''}
