@@ -4,6 +4,7 @@ import { formatDateTime } from '../utils/storage';
 
 export default function ReactionCard({ reaction, record, onClick, onMarkResult }) {
   const [showEquation, setShowEquation] = useState(false);
+  const [showPhenomenon, setShowPhenomenon] = useState(false);
   const rec = record || { reviewCount: 0, lastCorrect: 0, lastReviewAt: null };
   const mastery = getMasteryLevel(rec.reviewCount, rec.lastCorrect);
 
@@ -15,20 +16,34 @@ export default function ReactionCard({ reaction, record, onClick, onMarkResult }
           <span className={`card-badge ${mastery.cls}`}>{mastery.label}</span>
         </div>
 
-        <div className="card-equation-toggle" onClick={(e) => { e.stopPropagation(); setShowEquation(!showEquation); }}>
+        {/* 方程式折叠 */}
+        <div className="card-toggle" onClick={(e) => { e.stopPropagation(); setShowEquation(!showEquation); }}>
           {showEquation ? (
             <>
               <div className="card-equation">{reaction.equation}</div>
-              <div className="card-equation-hint">点击收起</div>
+              <div className="card-toggle-hint">▲ 点击收起</div>
             </>
           ) : (
-            <div className="card-equation-hint">👆 点击查看化学方程式</div>
+            <div className="card-toggle-hint">📝 点击查看化学方程式</div>
           )}
         </div>
 
+        {/* 现象折叠 */}
+        {reaction.phenomenon && (
+          <div className="card-toggle" onClick={(e) => { e.stopPropagation(); setShowPhenomenon(!showPhenomenon); }}>
+            {showPhenomenon ? (
+              <>
+                <div className="card-phenomenon">👁️ {reaction.phenomenon}</div>
+                <div className="card-toggle-hint">▲ 点击收起</div>
+              </>
+            ) : (
+              <div className="card-toggle-hint">👁️ 点击查看实验现象</div>
+            )}
+          </div>
+        )}
+
         <div className="card-category">
           <span className="tag">{reaction.category}</span>
-          <span className="tag" style={{ marginLeft: 4 }}>{reaction.section}</span>
         </div>
 
         {reaction.note && <div className="card-note">💡 {reaction.note}</div>}

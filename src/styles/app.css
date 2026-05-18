@@ -31,12 +31,12 @@ body {
 .header h1 { font-size: 24px; font-weight: 700; }
 .header .subtitle { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
 
-/* 公式折叠区 */
-.card-equation-toggle {
-  margin: 4px 0 8px;
+/* 折叠区通用 */
+.card-toggle {
+  margin: 4px 0;
   cursor: pointer;
 }
-.card-equation-toggle .card-equation {
+.card-toggle .card-equation {
   background: #f5f7fa;
   border-radius: 8px;
   padding: 8px 10px;
@@ -46,10 +46,20 @@ body {
   word-break: break-all;
   color: var(--text);
 }
-.card-equation-toggle .card-equation-hint {
+.card-toggle .card-phenomenon {
+  background: #fff8e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8d6e00;
+  margin-top: 2px;
+}
+.card-toggle .card-toggle-hint {
   font-size: 12px;
   color: var(--primary);
   margin-top: 2px;
+  padding-left: 2px;
 }
 
 /* Stats */
