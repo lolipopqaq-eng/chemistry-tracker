@@ -2,16 +2,11 @@ import { useState } from 'react';
 import { getMasteryLevel } from '../utils/status';
 import { formatDateTime } from '../utils/storage';
 
-// 解析方程
-// 格式: '左边 =(条件) 右边'（无机）或 '左边 →(条件) 右边'（有机）
-// 或 '左边 = 右边' '左边 → 右边' '左边 ⇌ 右边'
 function renderEquation(eq) {
-  // 先处理不反应
   if (eq.includes('不反应') || eq.includes('加热不分解')) {
     return <span>{eq}</span>;
   }
 
-  // 带条件: =(条件) 或 →(条件)
   const condMatch = eq.match(/^(.+?)([=→])\((.+?)\)(.+)$/);
   if (condMatch) {
     const [, left, arrow, condition, right] = condMatch;
@@ -27,7 +22,6 @@ function renderEquation(eq) {
     );
   }
 
-  // 可逆: ⇌
   const revMatch = eq.match(/^(.+?)⇌(.+)$/);
   if (revMatch) {
     return (
@@ -39,7 +33,6 @@ function renderEquation(eq) {
     );
   }
 
-  // 简单等号
   const eqMatch = eq.match(/^(.+?)=(.*)$/);
   if (eqMatch && !eqMatch[1].includes('→')) {
     return (
@@ -51,7 +44,6 @@ function renderEquation(eq) {
     );
   }
 
-  // 简单箭头
   const arrMatch = eq.match(/^(.+?)→(.+)$/);
   if (arrMatch) {
     return (
