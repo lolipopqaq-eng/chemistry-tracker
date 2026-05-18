@@ -127,52 +127,61 @@ export default function App() {
 
       <Stats stats={stats} />
 
-      {/* 章切换 - 树状图 */}
-      <div className="tree-view">
-        {TEXTBOOK.chapters.filter(ch => ch.id === 'ch2').map(ch => (
-          <div key={ch.id} className="tree-chapter">
-            <div className="tree-chapter-title">{ch.name}</div>
-            {ch.sections.map(sec => (
-              <div key={sec.id} className="tree-section">
-                <div className="tree-section-title">{sec.name}</div>
-                {sec.substances.map(sub => {
-                  const rxnCnt = sub.reactions.length;
-                  const knowCnt = sub.knowledge ? sub.knowledge.length : 0;
-                  return (
-                    <div key={sub.id} className="tree-substance" onClick={() => handleSubstanceClick(sub.id)}>
-                      <span className="tree-icon">{sub.icon}</span>
-                      <span className="tree-name">{sub.name}</span>
-                      <span className="tree-badge">
-                        {rxnCnt > 0 && `📝${rxnCnt}`}
-                        {knowCnt > 0 && ` 📖${knowCnt}`}
-                      </span>
-                    </div>
-                  );
-                })}
+      {!activeSubstance ? (
+        /* 首页 - 树状图 */
+        <>
+          <div className="tree-view">
+            {TEXTBOOK.chapters.filter(ch => ch.id === 'ch2').map(ch => (
+              <div key={ch.id} className="tree-chapter">
+                <div className="tree-chapter-title">{ch.name}</div>
+                {ch.sections.map(sec => (
+                  <div key={sec.id} className="tree-section">
+                    <div className="tree-section-title">{sec.name}</div>
+                    {sec.substances.map(sub => {
+                      const rxnCnt = sub.reactions.length;
+                      const knowCnt = sub.knowledge ? sub.knowledge.length : 0;
+                      return (
+                        <div key={sub.id} className="tree-substance" onClick={() => handleSubstanceClick(sub.id)}>
+                          <span className="tree-icon">{sub.icon}</span>
+                          <span className="tree-name">{sub.name}</span>
+                          <span className="tree-badge">
+                            {rxnCnt > 0 && `📝${rxnCnt}`}
+                            {knowCnt > 0 && ` 📖${knowCnt}`}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-        ))}
-      </div>
 
-      <div className="toolbar">
-        <div className="toolbar-right">
-          <button className="btn-export" onClick={handleExport}>💾 导出</button>
-          <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
-            📂 导入
-          </button>
-          <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
-          <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
-        </div>
-      </div>
+          <div className="toolbar">
+            <div className="toolbar-right">
+              <button className="btn-export" onClick={handleExport}>💾 导出</button>
+              <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
+                📂 导入
+              </button>
+              <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+              <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
+            </div>
+          </div>
 
-      {importError && (
-        <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
-          ❌ {importError}
-        </div>
-      )}
+          {importError && (
+            <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
+              ❌ {importError}
+            </div>
+          )}
+
+          <div className="section-title">
+            <span>📜 全部复习记录</span>
+            <span className="count">共 {history.length} 条</span>
+          </div>
+          <ReactionHistory history={history} compact={false} />
+        </>
       ) : (
-        /* 某个物质的反应列表页 */
+        /* 物质详情 - 反应列表页 */
         <>
           <button className="back-btn" onClick={handleBackToList}>← 返回</button>
 
@@ -258,8 +267,6 @@ export default function App() {
           })()}
         </>
       )}
-
-
 
       {confirmReset && (
         <ConfirmModal
