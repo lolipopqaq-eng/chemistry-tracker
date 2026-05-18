@@ -569,14 +569,14 @@
               },
               {
                 "id": "r19",
-                "name": "卤代烃水解",
+                "name": "溴乙烷水解(制乙醇)",
                 "equation": "CH₃CH₂Br + NaOH →(H₂O/△) CH₃CH₂OH + NaBr",
                 "category": "有机",
                 "note": "水溶液，取代反应"
               },
               {
                 "id": "r20",
-                "name": "卤代烃消去",
+                "name": "溴乙烷消去(制乙烯)",
                 "equation": "CH₃CH₂Br + NaOH →(醇/△) CH₂=CH₂↑ + NaBr + H₂O",
                 "category": "有机",
                 "note": "醇溶液，消去反应"
