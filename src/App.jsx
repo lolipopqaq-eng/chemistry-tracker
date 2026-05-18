@@ -165,10 +165,8 @@ export default function App() {
             </div>
           ))}
         </div>
-        <div className="side-nav-footer">
-          <Sidebar />
-        </div>
       </nav>
+      <Sidebar />
 
       {/* 主内容区 */}
       <main className="main-content">
@@ -190,6 +188,7 @@ export default function App() {
               <button className="btn-icon" onClick={handleExport} title="导出">💾</button>
               <button className="btn-icon" onClick={() => fileInputRef.current?.click()} title="导入">📂</button>
               <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+              <button className="btn-icon" onClick={() => setConfirmReset(true)} title="重置" style={{color:'var(--danger)',fontSize:'12px'}}>🗑️</button>
             </div>
           </div>
         </div>
@@ -248,8 +247,6 @@ export default function App() {
               <span className="content-count">共 {history.length} 条</span>
             </div>
             <ReactionHistory history={history} compact={false} />
-
-            <button className="btn-reset-bottom" onClick={() => setConfirmReset(true)}>重置所有数据</button>
           </>
         ) : (
           /* 物质详情 - 反应列表页 */

@@ -16,7 +16,6 @@ export default function Sidebar() {
     const bonus = Math.floor(Math.random() * 5) + 1;
     setHits(h => {
       const n = h + bonus;
-      if (n % 100 === 0) setTimeout(() => setFloating('🎉 已敲一吨！功德昭昭！'), 100);
       localStorage.setItem('wooden_fish', String(n));
       return n;
     });
@@ -31,17 +30,17 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="sidebar-fixed">
-        <div className="sidebar-donate" onClick={() => setShowDonate(true)}>
-          🥇 如果对你有帮助，欢迎打赏支持
+      {/* 右侧悬浮打赏+木鱼 */}
+      <div className="side-fixed-right">
+        <div className="side-fish" onClick={knock}>
+          <span className="side-fish-emoji">🪘</span>
+          <span className="side-fish-count">{hits}</span>
+          {combo >= 3 && <span className="side-fish-combo">🔥{combo}</span>}
         </div>
-        <div className="sidebar-fish" onClick={knock}>
-          <span className="sidebar-fish-emoji">🪘</span>
-          <span className="sidebar-fish-text">敲木鱼给冯老师积功德</span>
-          <span className="sidebar-fish-count">{hits}</span>
-          {combo >= 3 && <span className="sidebar-fish-combo">🔥{combo}连</span>}
+        <div className="side-donate-btn" onClick={() => setShowDonate(true)}>
+          🥇
         </div>
-        {floating && <div className="sidebar-float">{floating}</div>}
+        {floating && <div className="side-float">{floating}</div>}
       </div>
 
       {/* 打赏弹窗 */}
@@ -49,7 +48,7 @@ export default function Sidebar() {
         <div className="donate-overlay" onClick={() => setShowDonate(false)}>
           <div className="donate-modal" onClick={e => e.stopPropagation()}>
             <div className="donate-close" onClick={() => setShowDonate(false)}>✕</div>
-            <div className="donate-title">🤝 如果对你有帮助，欢迎打赏支持</div>
+            <div className="donate-title">如果对你有帮助，欢迎打赏支持</div>
             <div className="donate-codes">
               <div className="donate-item">
                 <img src={wechatPay} alt="微信收款码" />
