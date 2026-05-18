@@ -30,17 +30,24 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* 右侧悬浮打赏+木鱼 */}
-      <div className="side-fixed-right">
-        <div className="side-fish" onClick={knock}>
-          <span className="side-fish-emoji">🪘</span>
-          <span className="side-fish-count">{hits}</span>
-          {combo >= 3 && <span className="side-fish-combo">🔥{combo}</span>}
+      {/* 左侧空白区打赏+木鱼 */}
+      <div className="left-donate-area">
+        <div className="left-donate-box" onClick={() => setShowDonate(true)}>
+          <div className="left-donate-codes">
+            <img src={wechatPay} alt="微信" />
+            <img src={alipay} alt="支付宝" />
+          </div>
+          <div className="left-donate-text">如果对你有帮助，欢迎打赏支持</div>
         </div>
-        <div className="side-donate-btn" onClick={() => setShowDonate(true)}>
-          🥇
+        <div className="left-fish-box" onClick={knock}>
+          <span className="left-fish-emoji">🪘</span>
+          <span className="left-fish-text">敲木鱼给冯老师积功德</span>
+          <div className="left-fish-row">
+            <span className="left-fish-count">{hits}</span>
+            {combo >= 3 && <span className="left-fish-combo">🔥{combo}连</span>}
+          </div>
         </div>
-        {floating && <div className="side-float">{floating}</div>}
+        {floating && <div className="left-float">{floating}</div>}
       </div>
 
       {/* 打赏弹窗 */}

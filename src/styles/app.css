@@ -684,81 +684,103 @@ body {
 /* 教练，我想打篮球 */
 
 
-/* 右侧固定悬浮打赏+木鱼 */
-.side-fixed-right {
+/* 左侧打赏区（在导航和主内容之间） */
+.left-donate-area {
   position: fixed;
-  right: 20px;
-  bottom: 30px;
+  left: 210px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 140px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 200;
+  gap: 10px;
+  z-index: 50;
 }
-.side-fish {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
+.left-donate-box {
+  background: #fff9e6;
+  border: 1px solid #f0dda0;
+  border-radius: 12px;
+  padding: 10px;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 14px;
+  transition: all 0.12s;
+}
+.left-donate-box:active {
+  transform: scale(0.97);
+}
+.left-donate-codes {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.left-donate-codes img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid #e8d8a0;
+}
+.left-donate-text {
+  font-size: 9px;
+  font-weight: 600;
+  color: #b8860b;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+.left-fish-box {
   background: #faf6ed;
   border: 1px solid #e8dcc8;
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
   color: #8b7355;
   transition: all 0.12s;
-  user-select: none;
-  width: 50px;
 }
-.side-fish:active {
-  transform: scale(0.95);
-  background: #f0e8d8;
+.left-fish-box:active {
+  transform: scale(0.97);
 }
-.side-fish .side-fish-emoji {
-  font-size: 18px;
+.left-fish-emoji {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 2px;
 }
-.side-fish .side-fish-count {
-  font-size: 12px;
+.left-fish-text {
+  font-size: 10px;
+  font-weight: 600;
+  display: block;
+  line-height: 1.3;
+}
+.left-fish-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 3px;
+}
+.left-fish-count {
+  font-size: 14px;
   font-weight: 700;
 }
-.side-fish .side-fish-combo {
+.left-fish-combo {
   font-size: 10px;
   color: #e67e22;
   font-weight: 700;
 }
-.side-donate-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 10px 8px;
-  border-radius: 14px;
-  background: #fff9e6;
-  border: 1px solid #f0dda0;
-  color: #b8860b;
-  font-size: 18px;
-  transition: all 0.12s;
-  user-select: none;
-  width: 50px;
-}
-.side-donate-btn:active {
-  transform: scale(0.95);
-  background: #fcf0cc;
-}
-.side-float {
+.left-float {
   position: absolute;
-  right: calc(100% + 8px);
+  left: calc(100% + 8px);
   top: 50%;
   white-space: nowrap;
   font-size: 11px;
   color: #e67e22;
   font-weight: 600;
-  animation: rightFloat 1.5s ease-out forwards;
+  animation: leftFloat 1.5s ease-out forwards;
   pointer-events: none;
 }
-@keyframes rightFloat {
+@keyframes leftFloat {
   0% { opacity: 1; transform: translateX(0); }
-  100% { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 0; transform: translateX(12px); }
 }
 
 .import-error {
