@@ -1,14 +1,12 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import rawData from '../data/textbook-data.json';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataPath = path.join(__dirname, '..', 'data', 'textbook-data.json');
-const raw = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+const TEXTBOOK = {
+  name: '人教版化学（五册）',
+  chapters: rawData,
+};
 
-const TEXTBOOK = { name: '人教版化学', chapters: raw };
-
-function flattenReactions(tb) {
+// 辅助函数：展平所有反应（含所在章节/物质信息）
+export function flattenReactions(tb) {
   const all = [];
   tb.chapters.forEach(ch => {
     ch.sections.forEach(sec => {
@@ -32,5 +30,5 @@ function flattenReactions(tb) {
   return all;
 }
 
-const ALL_REACTIONS = flattenReactions(TEXTBOOK);
-export { TEXTBOOK, ALL_REACTIONS };
+export default TEXTBOOK;
+export { TEXTBOOK };

@@ -1641,5 +1641,298 @@
         ]
       }
     ]
+  },
+  {
+    "id": "ch9",
+    "name": "选修第一册 化学反应原理",
+    "sections": [
+      {
+        "id": "ch9_heat",
+        "name": "第1章 反应热",
+        "substances": [
+          {
+            "id": "ch9_heat_s",
+            "name": "反应热/焓变",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch9_rate_eq",
+        "name": "第2章 速率与平衡",
+        "substances": [
+          {
+            "id": "ch9_rate_s",
+            "name": "化学反应速率",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch9_eq_s",
+            "name": "化学平衡移动",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch9_ion",
+        "name": "第3章 水溶液中的离子",
+        "substances": [
+          {
+            "id": "ch9_ion_s",
+            "name": "弱电解质的电离",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch9_kwp",
+            "name": "水的电离/Kw/pH",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch9_hydrolysis",
+            "name": "盐类的水解",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch9_electro",
+        "name": "第4章 化学反应与电能",
+        "substances": [
+          {
+            "id": "ch9_primary",
+            "name": "原电池",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch9_electrol",
+            "name": "电解池",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch9_corrosion",
+            "name": "金属腐蚀与防护",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch10",
+    "name": "选修第二册 物质结构与性质",
+    "sections": [
+      {
+        "id": "ch10_atom",
+        "name": "第1章 原子结构",
+        "substances": [
+          {
+            "id": "ch10_ao",
+            "name": "原子结构/能级",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch10_econfig",
+            "name": "电子排布式",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch10_mol",
+        "name": "第2章 分子结构",
+        "substances": [
+          {
+            "id": "ch10_hybrid",
+            "name": "杂化轨道/VSEPR",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch10_polar",
+            "name": "分子极性/手性",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch10_crystal",
+        "name": "第3章 晶体结构",
+        "substances": [
+          {
+            "id": "ch10_crytype",
+            "name": "晶体类型",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch10_crycalc",
+            "name": "晶胞计算",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ch11",
+    "name": "选修第三册 有机化学基础",
+    "sections": [
+      {
+        "id": "ch11_org",
+        "name": "第1章 有机化合物结构特点",
+        "substances": [
+          {
+            "id": "ch11_class",
+            "name": "官能团分类",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch11_hydrocarbon",
+        "name": "第2章 烃",
+        "substances": [
+          {
+            "id": "ch11_alkane",
+            "name": "烷烃",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_alkene",
+            "name": "烯烃",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_alkyne",
+            "name": "炔烃",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_aromatic",
+            "name": "芳香烃",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch11_deriv",
+        "name": "第3章 烃的衍生物",
+        "substances": [
+          {
+            "id": "ch11_halo",
+            "name": "卤代烃",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_alc",
+            "name": "醇/酚",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_ald",
+            "name": "醛/酮",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_ac",
+            "name": "羧酸/酯",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch11_bio",
+        "name": "第4章 生物大分子",
+        "substances": [
+          {
+            "id": "ch11_carb",
+            "name": "糖类",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_prot",
+            "name": "蛋白质",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_nucl",
+            "name": "核酸",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      },
+      {
+        "id": "ch11_poly",
+        "name": "第5章 合成高分子",
+        "substances": [
+          {
+            "id": "ch11_add",
+            "name": "加成聚合",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          },
+          {
+            "id": "ch11_cond",
+            "name": "缩合聚合",
+            "icon": "📋",
+            "note": "待补充",
+            "reactions": []
+          }
+        ]
+      }
+    ]
   }
 ]

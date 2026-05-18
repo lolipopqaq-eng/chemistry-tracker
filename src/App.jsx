@@ -1,7 +1,7 @@
 import { useState, useMemo, useRef } from 'react';
 import TeacherCard from './components/TeacherCard';
 import { useChemTracker } from './hooks/useChemTracker';
-import { TEXTBOOK } from './utils/textbook';
+import TEXTBOOK, { flattenReactions } from './utils/textbook';
 import { STORAGE_KEYS, saveToStorage } from './utils/storage';
 import Stats from './components/Stats';
 import ReactionCard from './components/ReactionCard';
@@ -11,29 +11,7 @@ import ConfirmModal from './components/ConfirmModal';
 import './styles/app.css';
 
 // 展平所有反应
-function flattenReactions(textbook) {
-  const all = [];
-  textbook.chapters.forEach(ch => {
-    ch.sections.forEach(sec => {
-      sec.substances.forEach(sub => {
-        sub.reactions.forEach(r => {
-          all.push({
-            ...r,
-            substanceId: sub.id,
-            substanceName: sub.name,
-            substanceIcon: sub.icon,
-            substanceNote: sub.note,
-            sectionId: sec.id,
-            sectionName: sec.name,
-            chapterId: ch.id,
-            chapterName: ch.name,
-          });
-        });
-      });
-    });
-  });
-  return all;
-}
+
 
 export default function App() {
   const { records, history, stats, markResult, resetAll } = useChemTracker();
