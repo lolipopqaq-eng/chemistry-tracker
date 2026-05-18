@@ -17,6 +17,7 @@ import './styles/app.css';
 
 
 export default function App() {
+  const [navOpen, setNavOpen] = useState(true);
   const { records, history, stats, markResult, resetAll } = useChemTracker();
 
   const [activeChapter, setActiveChapter] = useState('ch2'); // 默认第二章
@@ -143,11 +144,15 @@ export default function App() {
   return (
     <div className="app">
       {/* 左侧导航栏 */}
-      <nav className="side-nav">
+      <div className="nav-toggle" onClick={() => setNavOpen(!navOpen)}>
+        {navOpen ? '✕' : '☰'}
+      </div>
+      <nav className={`side-nav ${navOpen ? 'open' : 'closed'}`}>
         <div className="side-nav-header">
           <span className="side-nav-logo">🧪</span>
           <span className="side-nav-title">化学复习</span>
           <span className="side-nav-subtitle">{ALL_REACTIONS.length} 反应</span>
+          <div className="side-nav-close" onClick={() => setNavOpen(false)}>✕</div>
         </div>
         <div className="side-nav-chapters">
           {(() => {

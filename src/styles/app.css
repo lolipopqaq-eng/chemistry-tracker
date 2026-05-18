@@ -52,6 +52,26 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  position: sticky;
+  top: 0;
+  background: var(--card-bg);
+  z-index: 2;
+}
+.side-nav-close {
+  display: none;
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 2px 6px;
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+  .side-nav { transform: translateX(-100%); transition: transform 0.2s; }
+  .side-nav.open { transform: translateX(0); }
+  .side-nav.closed { transform: translateX(-100%); }
+  .main-content { margin-left: 0 !important; }
+  .side-nav-close { display: block; }
 }
 .side-nav-logo {
   font-size: 16px;
@@ -681,106 +701,60 @@ body {
   padding-left: 0;
 }
 
-/* 教练，我想打篮球 */
-
-
-/* 左侧打赏区（在导航和主内容之间） */
-.left-donate-area {
+/* 右下角浮动打赏+木鱼 */
+.float-bar {
   position: fixed;
-  left: 210px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 140px;
+  right: 16px;
+  bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  z-index: 50;
+  gap: 8px;
+  z-index: 150;
 }
-.left-donate-box {
-  background: #fff9e6;
-  border: 1px solid #f0dda0;
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  transition: all 0.12s;
-}
-.left-donate-box:active {
-  transform: scale(0.97);
-}
-.left-donate-codes {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-}
-.left-donate-codes img {
-  width: 55px;
-  height: 55px;
-  object-fit: contain;
-  border-radius: 4px;
-  border: 1px solid #e8d8a0;
-}
-.left-donate-text {
-  font-size: 9px;
-  font-weight: 600;
-  color: #b8860b;
-  text-align: center;
-  margin-top: 4px;
-  line-height: 1.3;
-}
-.left-fish-box {
-  background: #faf6ed;
-  border: 1px solid #e8dcc8;
-  border-radius: 12px;
-  padding: 10px;
-  cursor: pointer;
-  text-align: center;
-  color: #8b7355;
-  transition: all 0.12s;
-}
-.left-fish-box:active {
-  transform: scale(0.97);
-}
-.left-fish-emoji {
-  font-size: 20px;
-  display: block;
-  margin-bottom: 2px;
-}
-.left-fish-text {
-  font-size: 10px;
-  font-weight: 600;
-  display: block;
-  line-height: 1.3;
-}
-.left-fish-row {
+.float-bar-item {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 4px;
-  margin-top: 3px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.12s;
+  user-select: none;
+  position: relative;
 }
-.left-fish-count {
-  font-size: 14px;
-  font-weight: 700;
+.float-bar-item:active {
+  transform: scale(0.95);
 }
-.left-fish-combo {
+.float-bar-icon {
+  font-size: 16px;
+}
+.float-bar-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+.float-bar-combo {
   font-size: 10px;
   color: #e67e22;
   font-weight: 700;
 }
-.left-float {
+.float-bar-float {
   position: absolute;
-  left: calc(100% + 8px);
-  top: 50%;
+  right: calc(100% + 8px);
+  bottom: 0;
   white-space: nowrap;
   font-size: 11px;
   color: #e67e22;
   font-weight: 600;
-  animation: leftFloat 1.5s ease-out forwards;
+  animation: barFloat 1.5s ease-out forwards;
   pointer-events: none;
 }
-@keyframes leftFloat {
+@keyframes barFloat {
   0% { opacity: 1; transform: translateX(0); }
-  100% { opacity: 0; transform: translateX(12px); }
+  100% { opacity: 0; transform: translateX(-10px); }
 }
 
 .import-error {
