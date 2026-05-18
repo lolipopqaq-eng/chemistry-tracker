@@ -19,15 +19,29 @@ export default function App() {
   const { records, history, stats, markResult, resetAll } = useChemTracker();
 
   const [activeChapter, setActiveChapter] = useState('ch2'); // 默认第二章
-  const [openChapters, setOpenChapters] = useState({ ch2: true });
   const [openSections, setOpenSections] = useState({});
+  const [searchText, setSearchText] = useState('');
 
-  const toggleChapter = (chId) => {
-    setOpenChapters(prev => ({ ...prev, [chId]: !prev[chId] }));
-  };
   const toggleSection = (secId) => {
     setOpenSections(prev => ({ ...prev, [secId]: !prev[secId] }));
   };
+
+  // 搜索过滤
+  const filteredChapters = useMemo(() => {
+    if (!searchText.trim()) return TEXTBOOK.chapters;
+    const q = searchText.trim().toLowerCase();
+    return TEXTBOOK.chapters.map(ch => {
+      const matchedSections = ch.sections.map(sec => {
+        const matchedSubs = sec.substances.filter(sub => 
+          sub.name.toLowerCase().includes(q) ||
+          sub.reactions.some(r => r.name.toLowerCase().includes(q)) ||
+          sub.knowledge?.some(k => k.q.includes(q))
+        );
+        return { ...sec, substances: matchedSubs };
+      }).filter(sec => sec.substances.length > 0);
+      return { ...ch, sections: matchedSections };
+    }).filter(ch => ch.sections.length > 0);
+  }, [searchText]);
   const [activeSection, setActiveSection] = useState(null);
   const [activeSubstance, setActiveSubstance] = useState(null);
   const [detailReaction, setDetailReaction] = useState(null);
@@ -127,180 +141,184 @@ export default function App() {
 
   return (
     <div className="app">
-      <Sidebar />
-      <header className="header">
-        <TeacherCard />
-        <h1>🧪 高考化学·必修第一册</h1>
-        <div className="subtitle">按教材框架 · 逐物质攻克高考反应 · 共 {ALL_REACTIONS.length} 个反应</div>
-      </header>
+      {/* 左侧导航栏 */}
+      <nav className="side-nav">
+        <div className="side-nav-header">
+          <div className="side-nav-logo">🧪</div>
+          <div className="side-nav-title">高考化学</div>
+        </div>
+        <div className="side-nav-chapters">
+          {TEXTBOOK.chapters.map(ch => (
+            <div
+              key={ch.id}
+              className={`side-nav-item ${activeChapter === ch.id ? 'active' : ''}`}
+              onClick={() => { setActiveChapter(ch.id); setActiveSubstance(null); }}
+            >
+              <span className="side-nav-ch-name">
+                {ch.name.replace(/^第.+? /, '')}
+              </span>
+              <span className="side-nav-ch-count">
+                {ch.sections.reduce((a,s) => a + s.substances.reduce((b,sub) => b + sub.reactions.length, 0), 0)}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="side-nav-footer">
+          <Sidebar />
+        </div>
+      </nav>
 
-      <Stats stats={stats} />
+      {/* 主内容区 */}
+      <main className="main-content">
+        {/* 顶部栏 */}
+        <div className="top-bar">
+          <div className="top-bar-left">
+            <TeacherCard />
+          </div>
+          <div className="top-bar-right">
+            <div className="search-box">
+              <input
+                type="text"
+                placeholder="搜索物质、反应…"
+                value={searchText}
+                onChange={e => setSearchText(e.target.value)}
+              />
+            </div>
+            <div className="top-bar-actions">
+              <button className="btn-icon" onClick={handleExport} title="导出">💾</button>
+              <button className="btn-icon" onClick={() => fileInputRef.current?.click()} title="导入">📂</button>
+              <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+            </div>
+          </div>
+        </div>
 
-      {!activeSubstance ? (
-        /* 首页 - 树状图 */
-        <>
-          {/* 折叠式教材目录 */}
-          {TEXTBOOK.chapters.filter(ch => ch.id === 'ch2').map(ch => {
-            const isChOpen = openChapters[ch.id];
-            return (
-              <div key={ch.id} className="fold-chapter">
-                <div className="fold-chapter-header" onClick={() => toggleChapter(ch.id)}>
-                  <span>
-                    <span className={`fold-arrow ${isChOpen ? 'open' : ''}`}>▶</span>
-                    {' '}{ch.name}
-                  </span>
-                  <span className="fold-count">
-                    {ch.sections.length} 节 · {ch.sections.reduce((a,s) => a + s.substances.length, 0)} 个物质
-                  </span>
-                </div>
-                {isChOpen && (
-                  <div className="fold-chapter-body">
-                    {ch.sections.map(sec => {
-                      const isSecOpen = openSections[sec.id];
-                      const totalRxn = sec.substances.reduce((a,s) => a + s.reactions.length, 0);
-                      const totalKnow = sec.substances.reduce((a,s) => a + (s.knowledge ? s.knowledge.length : 0), 0);
-                      return (
-                        <div key={sec.id} className="fold-section">
-                          <div className="fold-section-header" onClick={() => toggleSection(sec.id)}>
-                            <span className={`fold-arrow ${isSecOpen ? 'open' : ''}`}>▶</span>
-                            {sec.name}
-                            <span style={{marginLeft:'auto',fontSize:'10px',color:'#999'}}>
-                              {sec.substances.length} 物质 · 📝{totalRxn} · 📖{totalKnow}
-                            </span>
-                          </div>
-                          {isSecOpen && (
-                            <div className="fold-substance-grid">
-                              {sec.substances.map(sub => (
-                                <div key={sub.id} className="substance-card" onClick={() => handleSubstanceClick(sub.id)}>
-                                  <div className="substance-icon">{sub.icon}</div>
-                                  <div className="substance-name">{sub.name}</div>
-                                  <div className="substance-count">
-                                    {sub.reactions.length > 0 && `📝${sub.reactions.length}`}
-                                    {sub.knowledge && sub.knowledge.length > 0 && ` 📖${sub.knowledge.length}`}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
+        <Stats stats={stats} />
+
+        {importError && (
+          <div className="import-error">
+            ❌ {importError}
+          </div>
+        )}
+
+        {!activeSubstance ? (
+          /* 首页 - 当前章的物质网格 */
+          <>
+            <div className="content-header">
+              <h2>{currentChapter?.name || ''}</h2>
+              <span className="content-count">
+                共 {currentChapter?.sections.reduce((a,s) => a + s.substances.length, 0) || 0} 个物质
+                · {ALL_REACTIONS.length} 个反应
+              </span>
+            </div>
+
+            {currentChapter?.sections.map(sec => {
+              const isSecOpen = openSections[sec.id] ?? true;
+              return (
+                <div key={sec.id} className="content-section">
+                  <div className="content-section-header" onClick={() => toggleSection(sec.id)}>
+                    <span className={`fold-arrow ${isSecOpen ? 'open' : ''}`}>▶</span>
+                    {sec.name}
+                    <span className="content-section-count">
+                      {sec.substances.length} 物质
+                    </span>
                   </div>
-                )}
-              </div>
-            );
-          })}
+                  {isSecOpen && (
+                    <div className="substance-grid">
+                      {sec.substances.map(sub => (
+                        <div key={sub.id} className="substance-card" onClick={() => handleSubstanceClick(sub.id)}>
+                          <div className="substance-icon">{sub.icon}</div>
+                          <div className="substance-name">{sub.name}</div>
+                          <div className="substance-count">
+                            {sub.reactions.length > 0 && `📝${sub.reactions.length}`}
+                            {sub.knowledge && sub.knowledge.length > 0 && ` 📖${sub.knowledge.length}`}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
-          <div className="toolbar">
-            <div className="toolbar-right">
-              <button className="btn-export" onClick={handleExport}>💾 导出</button>
-              <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
-                📂 导入
-              </button>
-              <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
-              <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
+            <div className="content-header" style={{marginTop:'24px'}}>
+              <span>📜 全部复习记录</span>
+              <span className="content-count">共 {history.length} 条</span>
             </div>
-          </div>
+            <ReactionHistory history={history} compact={false} />
 
-          {importError && (
-            <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
-              ❌ {importError}
-            </div>
-          )}
+            <button className="btn-reset-bottom" onClick={() => setConfirmReset(true)}>重置所有数据</button>
+          </>
+        ) : (
+          /* 物质详情 - 反应列表页 */
+          <>
+            <button className="back-btn" onClick={handleBackToList}>← 返回 {currentChapter?.name?.replace(/^第.+? /, '') || ''}</button>
 
-          <div className="section-title">
-            <span>📜 全部复习记录</span>
-            <span className="count">共 {history.length} 条</span>
-          </div>
-          <ReactionHistory history={history} compact={false} />
-        </>
-      ) : (
-        /* 物质详情 - 反应列表页 */
-        <>
-          <button className="back-btn" onClick={handleBackToList}>← 返回</button>
-
-          {(() => {
-            const sub = (() => {
-              for (const sec of currentChapter.sections) {
-                for (const s of sec.substances) {
-                  if (s.id === activeSubstance) return { ...s, sectionName: sec.name };
+            {(() => {
+              const sub = (() => {
+                for (const sec of currentChapter.sections) {
+                  for (const s of sec.substances) {
+                    if (s.id === activeSubstance) return { ...s, sectionName: sec.name };
+                  }
                 }
-              }
-              return null;
-            })();
-            return sub && (
-              <div className="substance-header">
-                <span className="substance-icon-large">{sub.icon}</span>
-                <div>
-                  <div className="substance-name-large">{sub.name}</div>
-                  <div className="substance-meta">{sub.sectionName}</div>
-                  {sub.note && <div className="substance-desc">{sub.note}</div>}
+                return null;
+              })();
+              return sub && (
+                <div className="substance-header">
+                  <span className="substance-icon-large">{sub.icon}</span>
+                  <div>
+                    <div className="substance-name-large">{sub.name}</div>
+                    <div className="substance-meta">{sub.sectionName}</div>
+                    {sub.note && <div className="substance-desc">{sub.note}</div>}
+                  </div>
                 </div>
-              </div>
-            );
-          })()}
+              );
+            })()}
 
-          {(() => {
-            const sub = (() => {
-              for (const sec of currentChapter.sections) {
-                for (const s of sec.substances) {
-                  if (s.id === activeSubstance) return s;
+            {(() => {
+              const sub = (() => {
+                for (const sec of currentChapter.sections) {
+                  for (const s of sec.substances) {
+                    if (s.id === activeSubstance) return s;
+                  }
                 }
-              }
-              return null;
-            })();
-            return sub && sub.knowledge && sub.knowledge.length > 0 ? (
-              <KnowledgeCard knowledge={sub.knowledge} />
-            ) : null;
-          })()}
+                return null;
+              })();
+              return sub && sub.knowledge && sub.knowledge.length > 0 ? (
+                <KnowledgeCard knowledge={sub.knowledge} />
+              ) : null;
+            })()}
 
-          <div className="toolbar">
-            <div className="toolbar-right">
-              <button className="btn-export" onClick={handleExport}>💾 导出</button>
-              <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
-                📂 导入
-              </button>
-              <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
-              <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
-            </div>
-          </div>
-
-          {importError && (
-            <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
-              ❌ {importError}
-            </div>
-          )}
-
-          {/* 按 category 分组 */}
-          {(() => {
-            const groups = {};
-            currentReactions.forEach(r => {
-              const cat = r.category || '其他';
-              if (!groups[cat]) groups[cat] = [];
-              groups[cat].push(r);
-            });
-            return Object.entries(groups).map(([cat, reactions]) => (
-              <div key={cat} className="section-block">
-                <div className="section-title">
-                  <span>{cat}</span>
-                  <span className="count">{reactions.length} 个反应</span>
+            {/* 按 category 分组 */}
+            {(() => {
+              const groups = {};
+              currentReactions.forEach(r => {
+                const cat = r.category || '其他';
+                if (!groups[cat]) groups[cat] = [];
+                groups[cat].push(r);
+              });
+              return Object.entries(groups).map(([cat, reactions]) => (
+                <div key={cat} className="content-section">
+                  <div className="content-section-header" style={{cursor:'default'}}>
+                    {cat}
+                    <span className="content-section-count">{reactions.length} 个反应</span>
+                  </div>
+                  <div className="reaction-list">
+                    {reactions.map(r => (
+                      <ReactionCard
+                        key={r.id}
+                        reaction={r}
+                        record={records[r.id]}
+                        onClick={(reaction) => setDetailReaction(reaction)}
+                        onMarkResult={(id, correct) => markResult(id, correct)}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <div className="reaction-list">
-                  {reactions.map(r => (
-                    <ReactionCard
-                      key={r.id}
-                      reaction={r}
-                      record={records[r.id]}
-                      onClick={(reaction) => setDetailReaction(reaction)}
-                      onMarkResult={(id, correct) => markResult(id, correct)}
-                    />
-                  ))}
-                </div>
-              </div>
-            ));
-          })()}
-        </>
-      )}
+              ));
+            })()}
+          </>
+        )}
+      </main>
 
       {confirmReset && (
         <ConfirmModal
