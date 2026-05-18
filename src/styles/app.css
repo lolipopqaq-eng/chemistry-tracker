@@ -661,6 +661,11 @@ body {
 .wooden-fish-area .wooden-fish-count {
   color: #b8a078;
 }
+.wooden-fish-area .wooden-fish-title {
+  color: #8b7355;
+  font-size: 10px;
+  white-space: nowrap;
+}
 .wooden-fish-area .wooden-fish-combo {
   color: #e67e22;
   font-weight: 700;
