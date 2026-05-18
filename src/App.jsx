@@ -122,13 +122,26 @@ export default function App() {
   // Detail view of a reaction
   if (detailReaction) {
     return (
-      <ReactionDetail
-        reaction={detailReaction}
-        record={records[detailReaction.id]}
-        history={history}
-        onBack={() => setDetailReaction(null)}
-        onMarkResult={(id, correct) => markResult(id, correct)}
-      />
+      <>
+        <ReactionDetail
+          reaction={detailReaction}
+          record={records[detailReaction.id]}
+          history={history}
+          onBack={() => setDetailReaction(null)}
+          onMarkResult={(id, correct) => markResult(id, correct)}
+        />
+        <div className="teacher-card" style={{ margin: '20px 16px 0' }}>
+          <img src="/teacher-photo.jpg" alt="冯老师" className="teacher-photo" />
+          <div className="teacher-info">
+            <div className="teacher-name">冯老师</div>
+            <div className="teacher-desc">高考化学 · 系统复习</div>
+            <div className="teacher-contact">
+              <span>📞 <a href="tel:16655125178">16655125178</a></span>
+              <span>💬 微信：FengWei-ontheway</span>
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 
@@ -262,6 +275,19 @@ export default function App() {
           })()}
         </>
       )}
+
+      {/* 关于老师 */}
+      <div className="teacher-card">
+        <img src="/teacher-photo.jpg" alt="冯老师" className="teacher-photo" />
+        <div className="teacher-info">
+          <div className="teacher-name">冯老师</div>
+          <div className="teacher-desc">高考化学 · 系统复习</div>
+          <div className="teacher-contact">
+            <span>📞 <a href="tel:16655125178">16655125178</a></span>
+            <span>💬 微信：FengWei-ontheway</span>
+          </div>
+        </div>
+      </div>
 
       {confirmReset && (
         <ConfirmModal

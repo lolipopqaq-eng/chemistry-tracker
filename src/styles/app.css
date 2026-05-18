@@ -489,6 +489,57 @@ body {
 .btn-cancel { background: #f0f0f5; color: var(--text); }
 .btn-danger { background: var(--danger); color: white; }
 
+/* 关于老师卡片 */
+.teacher-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f0f4ff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  border: 1px solid #dce3f0;
+}
+.teacher-card .teacher-photo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.teacher-card .teacher-info {
+  flex: 1;
+  min-width: 0;
+}
+.teacher-card .teacher-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+.teacher-card .teacher-desc {
+  font-size: 12px;
+  color: var(--primary);
+  margin-top: 1px;
+}
+.teacher-card .teacher-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.teacher-card .teacher-contact a {
+  color: var(--text);
+  text-decoration: none;
+}
+.teacher-card .teacher-contact a:hover {
+  color: var(--primary);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .app { padding: 12px 10px 32px; }
