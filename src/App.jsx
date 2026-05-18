@@ -19,6 +19,15 @@ export default function App() {
   const { records, history, stats, markResult, resetAll } = useChemTracker();
 
   const [activeChapter, setActiveChapter] = useState('ch2'); // 默认第二章
+  const [openChapters, setOpenChapters] = useState({ ch2: true });
+  const [openSections, setOpenSections] = useState({});
+
+  const toggleChapter = (chId) => {
+    setOpenChapters(prev => ({ ...prev, [chId]: !prev[chId] }));
+  };
+  const toggleSection = (secId) => {
+    setOpenSections(prev => ({ ...prev, [secId]: !prev[secId] }));
+  };
   const [activeSection, setActiveSection] = useState(null);
   const [activeSubstance, setActiveSubstance] = useState(null);
   const [detailReaction, setDetailReaction] = useState(null);
@@ -130,32 +139,57 @@ export default function App() {
       {!activeSubstance ? (
         /* 首页 - 树状图 */
         <>
-          <div className="tree-view">
-            {TEXTBOOK.chapters.filter(ch => ch.id === 'ch2').map(ch => (
-              <div key={ch.id} className="tree-chapter">
-                <div className="tree-chapter-title">{ch.name}</div>
-                {ch.sections.map(sec => (
-                  <div key={sec.id} className="tree-section">
-                    <div className="tree-section-title">{sec.name}</div>
-                    {sec.substances.map(sub => {
-                      const rxnCnt = sub.reactions.length;
-                      const knowCnt = sub.knowledge ? sub.knowledge.length : 0;
+          {/* 折叠式教材目录 */}
+          {TEXTBOOK.chapters.filter(ch => ch.id === 'ch2').map(ch => {
+            const isChOpen = openChapters[ch.id];
+            return (
+              <div key={ch.id} className="fold-chapter">
+                <div className="fold-chapter-header" onClick={() => toggleChapter(ch.id)}>
+                  <span>
+                    <span className={`fold-arrow ${isChOpen ? 'open' : ''}`}>▶</span>
+                    {' '}{ch.name}
+                  </span>
+                  <span className="fold-count">
+                    {ch.sections.length} 节 · {ch.sections.reduce((a,s) => a + s.substances.length, 0)} 个物质
+                  </span>
+                </div>
+                {isChOpen && (
+                  <div className="fold-chapter-body">
+                    {ch.sections.map(sec => {
+                      const isSecOpen = openSections[sec.id];
+                      const totalRxn = sec.substances.reduce((a,s) => a + s.reactions.length, 0);
+                      const totalKnow = sec.substances.reduce((a,s) => a + (s.knowledge ? s.knowledge.length : 0), 0);
                       return (
-                        <div key={sub.id} className="tree-substance" onClick={() => handleSubstanceClick(sub.id)}>
-                          <span className="tree-icon">{sub.icon}</span>
-                          <span className="tree-name">{sub.name}</span>
-                          <span className="tree-badge">
-                            {rxnCnt > 0 && `📝${rxnCnt}`}
-                            {knowCnt > 0 && ` 📖${knowCnt}`}
-                          </span>
+                        <div key={sec.id} className="fold-section">
+                          <div className="fold-section-header" onClick={() => toggleSection(sec.id)}>
+                            <span className={`fold-arrow ${isSecOpen ? 'open' : ''}`}>▶</span>
+                            {sec.name}
+                            <span style={{marginLeft:'auto',fontSize:'10px',color:'#999'}}>
+                              {sec.substances.length} 物质 · 📝{totalRxn} · 📖{totalKnow}
+                            </span>
+                          </div>
+                          {isSecOpen && (
+                            <div className="fold-substance-grid">
+                              {sec.substances.map(sub => (
+                                <div key={sub.id} className="substance-card" onClick={() => handleSubstanceClick(sub.id)}>
+                                  <div className="substance-icon">{sub.icon}</div>
+                                  <div className="substance-name">{sub.name}</div>
+                                  <div className="substance-count">
+                                    {sub.reactions.length > 0 && `📝${sub.reactions.length}`}
+                                    {sub.knowledge && sub.knowledge.length > 0 && ` 📖${sub.knowledge.length}`}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       );
                     })}
                   </div>
-                ))}
+                )}
               </div>
-            ))}
-          </div>
+            );
+          })}
 
           <div className="toolbar">
             <div className="toolbar-right">

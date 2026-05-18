@@ -526,80 +526,78 @@ body {
   margin-top: 16px;
 }
 
-/* 树状图 */
-.tree-view {
-  margin-bottom: 16px;
+/* 折叠式教材目录 */
+.fold-chapter {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
 }
-.tree-chapter {
-  margin-bottom: 12px;
+.fold-chapter:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
-.tree-chapter-title {
-  font-size: 15px;
-  font-weight: 700;
+.fold-chapter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--text);
-  padding: 8px 0 4px 0;
-  border-bottom: 2px solid var(--primary);
-  margin-bottom: 6px;
+  cursor: pointer;
+  background: #fafbfc;
+  user-select: none;
+}
+.fold-chapter-header:hover {
+  background: #f0f2f5;
+}
+.fold-chapter-header .fold-arrow {
+  font-size: 12px;
+  transition: transform 0.2s;
+  color: var(--text-secondary);
+}
+.fold-chapter-header .fold-arrow.open {
+  transform: rotate(90deg);
+}
+.fold-chapter-header .fold-count {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-right: 8px;
+}
+.fold-chapter-body {
+  padding: 4px 12px 12px;
+}
+.fold-section {
+  margin-bottom: 8px;
+}
+.fold-section-header {
   display: flex;
   align-items: center;
   gap: 6px;
-}
-.tree-chapter-title::before {
-  content: '📖';
-}
-.tree-section {
-  padding-left: 16px;
-  border-left: 2px solid #e0e0e0;
-  margin-left: 6px;
-  margin-bottom: 6px;
-}
-.tree-section-title {
-  font-size: 13px;
+  padding: 6px 8px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-secondary);
-  padding: 4px 0 4px 8px;
-  position: relative;
-}
-.tree-section-title::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  top: 50%;
-  width: 8px;
-  height: 2px;
-  background: #e0e0e0;
-}
-.tree-substance {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  margin: 2px 0;
-  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.15s;
-  font-size: 13px;
+  user-select: none;
+  border-radius: 6px;
 }
-.tree-substance:hover {
-  background: #e8f0fe;
+.fold-section-header:hover {
+  background: #f0f2f5;
 }
-.tree-substance:active {
-  background: #d0e0ff;
+.fold-section-header .fold-arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
 }
-.tree-substance .tree-icon {
-  font-size: 16px;
-  width: 24px;
-  text-align: center;
+.fold-section-header .fold-arrow.open {
+  transform: rotate(90deg);
 }
-.tree-substance .tree-name {
-  color: var(--text);
-  font-weight: 500;
-  flex: 1;
-}
-.tree-substance .tree-badge {
-  font-size: 11px;
-  color: var(--text-secondary);
-  white-space: nowrap;
+.fold-substance-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 4px 0 4px 16px;
 }
 
 /* 知识点填空卡片 */
