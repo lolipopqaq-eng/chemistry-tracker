@@ -7,6 +7,7 @@ import { STORAGE_KEYS, saveToStorage } from './utils/storage';
 import Stats from './components/Stats';
 import ReactionCard from './components/ReactionCard';
 import KnowledgeCard from './components/KnowledgeCard';
+import MindMap from './components/MindMap';
 import ReactionDetail from './components/ReactionDetail';
 import ReactionHistory from './components/ReactionHistory';
 import ConfirmModal from './components/ConfirmModal';
@@ -204,6 +205,7 @@ export default function App() {
         {!activeSubstance ? (
           /* 首页 - 当前章的物质网格 */
           <>
+            {currentChapter?.mindMap && <MindMap data={currentChapter.mindMap} />}
             <div className="content-header">
               <h2>{currentChapter?.name || ''}</h2>
               <span className="content-count">
