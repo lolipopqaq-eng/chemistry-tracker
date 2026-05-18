@@ -559,8 +559,8 @@ body {
 .donate-modal {
   background: #fff;
   border-radius: 16px;
-  padding: 24px;
-  width: 320px;
+  padding: 28px;
+  width: 380px;
   position: relative;
 }
 .donate-close {
@@ -586,10 +586,10 @@ body {
   text-align: center;
 }
 .donate-item img {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid var(--border);
 }
 .donate-item span {

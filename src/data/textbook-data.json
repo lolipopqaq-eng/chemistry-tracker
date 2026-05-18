@@ -2614,7 +2614,22 @@
             "name": "热化学",
             "icon": "🔥",
             "note": "热化学方程式需标状态(s/l/g/aq)和ΔH",
-            "reactions": [],
+            "reactions": [
+              {
+                "id": "ch9_t1",
+                "name": "甲烷燃烧热",
+                "equation": "CH₄(g) + 2O₂(g) = CO₂(g) + 2H₂O(l)",
+                "category": "燃烧热",
+                "note": "💯 燃烧热生成液态水"
+              },
+              {
+                "id": "ch9_t2",
+                "name": "H₂燃烧热",
+                "equation": "H₂(g) + ½O₂(g) = H₂O(l)",
+                "category": "燃烧热",
+                "note": ""
+              }
+            ],
             "knowledge": [
               {
                 "q": "热化学方程式必须注明的: (1)物质____ (2)____值",
@@ -2639,6 +2654,14 @@
               {
                 "q": "中和热ΔH = ____（稀强酸+稀强碱）",
                 "a": "-57.3kJ/mol"
+              },
+              {
+                "q": "热化学方程式中必须注明物质的____和____",
+                "a": "状态(s/l/g/aq)、ΔH值"
+              },
+              {
+                "q": "ΔH与计量数成____比",
+                "a": "正"
               }
             ]
           }
@@ -2687,7 +2710,43 @@
             "name": "盐类的水解",
             "icon": "📋",
             "note": "待补充",
-            "reactions": [],
+            "reactions": [
+              {
+                "id": "ch9_hy1",
+                "name": "NH₄⁺水解",
+                "equation": "NH₄⁺ + H₂O ⇌ NH₃·H₂O + H⁺",
+                "category": "水解",
+                "note": "强酸弱碱盐→酸性"
+              },
+              {
+                "id": "ch9_hy2",
+                "name": "CH₃COO⁻水解",
+                "equation": "CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻",
+                "category": "水解",
+                "note": "强碱弱酸盐→碱性"
+              },
+              {
+                "id": "ch9_hy3",
+                "name": "CO₃²⁻水解（第一步）",
+                "equation": "CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻",
+                "category": "水解",
+                "note": ""
+              },
+              {
+                "id": "ch9_hy4",
+                "name": "HCO₃⁻水解",
+                "equation": "HCO₃⁻ + H₂O ⇌ H₂CO₃ + OH⁻",
+                "category": "水解",
+                "note": ""
+              },
+              {
+                "id": "ch9_hy5",
+                "name": "Al³⁺双水解（灭火器）",
+                "equation": "Al³⁺ + 3HCO₃⁻ = Al(OH)₃↓ + 3CO₂↑",
+                "category": "双水解",
+                "note": "💯 泡沫灭火器原理"
+              }
+            ],
             "knowledge": [
               {
                 "q": "强酸弱碱盐水解呈____性",
@@ -2728,7 +2787,22 @@
             "name": "金属腐蚀与防护",
             "icon": "📋",
             "note": "待补充",
-            "reactions": [],
+            "reactions": [
+              {
+                "id": "ch9_c1",
+                "name": "钢铁吸氧腐蚀(负极)",
+                "equation": "Fe - 2e⁻ = Fe²⁺",
+                "category": "腐蚀",
+                "note": "电化学腐蚀负极"
+              },
+              {
+                "id": "ch9_c2",
+                "name": "钢铁吸氧腐蚀(正极)",
+                "equation": "O₂ + 2H₂O + 4e⁻ = 4OH⁻",
+                "category": "腐蚀",
+                "note": "💯 吸氧腐蚀为主"
+              }
+            ],
             "knowledge": [
               {
                 "q": "钢铁的吸氧腐蚀：正极反应为____",
@@ -2741,6 +2815,14 @@
               {
                 "q": "外加电流法将被保护金属接电源____极",
                 "a": "负"
+              },
+              {
+                "q": "钢铁腐蚀主要形式是____腐蚀",
+                "a": "电化学（吸氧）"
+              },
+              {
+                "q": "牺牲阳极法保护的金属作____极",
+                "a": "阳"
               }
             ]
           },
@@ -2779,9 +2861,43 @@
                 "equation": "Cu - 2e⁻ = Cu²⁺",
                 "category": "电解",
                 "note": "粗铜作阳极，阳极泥含Au/Ag"
+              },
+              {
+                "id": "ch9_e5",
+                "name": "电解水",
+                "equation": "2H₂O =(电解) 2H₂↑ + O₂↑",
+                "category": "电解",
+                "phenomenon": "阴极产生H₂，阳极产生O₂"
+              },
+              {
+                "id": "ch9_e6",
+                "name": "电解NaCl溶液",
+                "equation": "2NaCl + 2H₂O =(电解) 2NaOH + H₂↑ + Cl₂↑",
+                "category": "氯碱工业",
+                "note": ""
+              },
+              {
+                "id": "ch9_e7",
+                "name": "电解熔融NaCl",
+                "equation": "2NaCl(熔融) =(电解) 2Na + Cl₂↑",
+                "category": "电解",
+                "note": "💯 制金属钠"
               }
             ],
-            "knowledge": []
+            "knowledge": [
+              {
+                "q": "电解池阳极接电源____极，发生____反应",
+                "a": "正、氧化"
+              },
+              {
+                "q": "电解池阴极接电源____极，发生____反应",
+                "a": "负、还原"
+              },
+              {
+                "q": "电镀时镀件接____极，镀层金属接____极",
+                "a": "阴、阳"
+              }
+            ]
           }
         ]
       }
@@ -3028,6 +3144,22 @@
               {
                 "q": "NaCl晶胞中，Na⁺____个，Cl⁻____个",
                 "a": "4、4"
+              },
+              {
+                "q": "金刚石中C为____杂化，属于____晶体",
+                "a": "sp³、共价"
+              },
+              {
+                "q": "石墨中C为____杂化，属于____型晶体",
+                "a": "sp²、混合"
+              },
+              {
+                "q": "SiO₂为____晶体，硬度____",
+                "a": "共价、大"
+              },
+              {
+                "q": "干冰为____晶体，升华____热",
+                "a": "分子、吸"
               }
             ]
           }
@@ -3256,6 +3388,20 @@
                 "category": "与金属",
                 "phenomenon": "产生无色气体",
                 "note": "OH上的H可被Na置换"
+              },
+              {
+                "id": "ch11_ac2",
+                "name": "乙醇分子间脱水",
+                "equation": "2C₂H₅OH →(浓H₂SO₄/140℃) C₂H₅OC₂H₅ + H₂O",
+                "category": "取代",
+                "note": "💯 140℃→醚"
+              },
+              {
+                "id": "ch11_ac3",
+                "name": "乙醇消去（制乙烯）",
+                "equation": "C₂H₅OH →(浓H₂SO₄/170℃) C₂H₄↑ + H₂O",
+                "category": "消去",
+                "note": "💯 170℃→烯"
               }
             ],
             "knowledge": []
@@ -3280,6 +3426,13 @@
                 "equation": "C₆H₅OH + NaOH → C₆H₅ONa + H₂O",
                 "category": "酸碱",
                 "note": "苯酚弱酸性"
+              },
+              {
+                "id": "ch11_ph3",
+                "name": "苯酚钠+CO₂",
+                "equation": "C₆H₅ONa + CO₂ + H₂O → C₆H₅OH + NaHCO₃",
+                "category": "复分解",
+                "note": "💯 酸性H₂CO₃>苯酚"
               }
             ],
             "knowledge": []
@@ -3312,6 +3465,14 @@
                 "equation": "HCHO + 4[Ag(NH₃)₂]OH →(△) (NH₄)₂CO₃ + 4Ag↓ + 6NH₃ + 2H₂O",
                 "category": "氧化",
                 "note": "⚠ HCHO相当于两个醛基"
+              },
+              {
+                "id": "ch11_al4b",
+                "name": "乙醛+Cu(OH)₂",
+                "equation": "CH₃CHO + 2Cu(OH)₂ + NaOH →(△) CH₃COONa + Cu₂O↓ + 3H₂O",
+                "category": "氧化",
+                "phenomenon": "砖红色沉淀",
+                "note": ""
               }
             ],
             "knowledge": []
@@ -3385,6 +3546,13 @@
                 "equation": "氨基酸 + 氨基酸 →(△) 二肽 + H₂O",
                 "category": "缩合",
                 "note": "肽键—CONH—"
+              },
+              {
+                "id": "ch11_pr2",
+                "name": "蛋白质黄色反应",
+                "equation": "蛋白质 + 浓HNO₃ →(△) 黄色",
+                "category": "检验",
+                "note": "💯 含苯环的蛋白质"
               }
             ],
             "knowledge": []
@@ -3421,6 +3589,20 @@
                 "equation": "nCH₂=CH₂ →(催化剂) [CH₂-CH₂]ₙ",
                 "category": "加聚",
                 "note": "💯 聚乙烯PE"
+              },
+              {
+                "id": "ch11_pol2",
+                "name": "苯酚+甲醛(酚醛树脂)",
+                "equation": "nC₆H₅OH + nHCHO →(催化剂) 酚醛树脂 + nH₂O",
+                "category": "缩聚",
+                "note": "💯 电木"
+              },
+              {
+                "id": "ch11_pol3",
+                "name": "聚氯乙烯PVC制备",
+                "equation": "nCH₂=CHCl →(催化剂) [CH₂-CHCl]ₙ",
+                "category": "加聚",
+                "note": "由氯乙烯加聚"
               }
             ],
             "knowledge": []
