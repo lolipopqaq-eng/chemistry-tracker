@@ -19,6 +19,13 @@ export default function TeacherCard() {
   return (
     <>
       <div className="teacher-card-top">
+        <div className="teacher-actions">
+          <div className="action-btn donate-btn" onClick={() => setShowDonate(true)} title="打赏支持">
+            <div className="action-icon">🥇</div>
+            <div className="action-text">打赏</div>
+          </div>
+          <WoodenFish />
+        </div>
         <img
           src={teacherPhoto}
           alt="冯老师"
@@ -34,10 +41,6 @@ export default function TeacherCard() {
             <span>💬 <a href="weixin://FengWei-ontheway" onClick={(e) => { e.preventDefault(); copy('FengWei-ontheway', '微信号'); }}>FengWei-ontheway</a></span>
           </div>
           {copied && <div className="copy-tip">✅ {copied}已复制</div>}
-          <div className="donate-link" onClick={() => setShowDonate(true)}>
-            ☕ 如果对你有帮助，欢迎打赏支持
-          </div>
-          <WoodenFish />
         </div>
       </div>
 

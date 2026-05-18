@@ -80,8 +80,8 @@ export default function WoodenFish() {
   return (
     <div className="wooden-fish-area">
       <div className="wooden-fish-box" onClick={knock}>
-        <div className="wooden-fish-emoji">🐟</div>
-        <div className="wooden-fish-text">给冯老师敲木鱼</div>
+        <div className="wooden-fish-emoji">🪘</div>
+        <div className="wooden-fish-text">敲木鱼</div>
         <div className="wooden-fish-count">功德：{hits}</div>
         <div className="wooden-fish-title">{getFishTitle(hits)}</div>
         {combo >= 3 && <div className="wooden-fish-combo">🔥 {combo}连</div>}
