@@ -1,81 +1,74 @@
 import { jsPDF } from 'jspdf';
-import 'jspdf-autotable';
 
-export function exportWrongReactionsPDF(records, reactions, textbookData) {
-  const doc = new jsPDF('p', 'mm', 'a4');
-
-  // 标题
-  doc.setFontSize(18);
-  doc.text('化学复习 - 错题集', 105, 20, { align: 'center' });
-
-  doc.setFontSize(10);
-  doc.text(`导出时间：${new Date().toLocaleString('zh-CN')}`, 105, 28, { align: 'center' });
-
-  // 统计
+// 用 html 方式生成 PDF，支持中文
+export function exportWrongReactionsPDF(records, reactions) {
   const wrong = Object.entries(records).filter(([id, rec]) => {
-    return rec.reviewCount > 0 && rec.lastCorrect / rec.reviewCount < 0.7;
+    return rec.reviewCount > 0 && (1 - rec.lastCorrect / rec.reviewCount) > 0.3;
   });
 
-  doc.setFontSize(11);
-  doc.text(`总复习反应：${Object.keys(records).length} 个`, 14, 38);
-  doc.text(`错误率>30%：${wrong.length} 个`, 14, 44);
+  if (wrong.length === 0) {
+    alert('没有错题可导出！继续复习吧 💪');
+    return;
+  }
 
-  let y = 52;
+  // 建一个隐藏的 div 用来做 PDF 内容
+  const div = document.createElement('div');
+  div.style.cssText = 'position:absolute;left:-9999px;top:0;width:800px;padding:20px;font-family:SimSun,Microsoft YaHei,sans-serif;';
+
+  let html = `
+    <div style="text-align:center;margin-bottom:16px;">
+      <h1 style="font-size:22px;margin:0;">化学复习 - 错题集</h1>
+      <p style="font-size:12px;color:#666;">导出时间：${new Date().toLocaleString('zh-CN')}</p>
+    </div>
+    <div style="font-size:13px;margin-bottom:12px;">
+      总复习反应：${Object.keys(records).length} 个 · 待复习错题：${wrong.length} 个
+    </div>
+    <hr style="border:1px solid #ddd;" />
+  `;
 
   wrong.forEach(([id, rec], idx) => {
     const r = reactions.find(rr => rr.id === id);
     if (!r) return;
 
-    // 检查是否需要换页
-    if (y > 260) {
-      doc.addPage();
-      y = 20;
-    }
-
-    // 题号
-    doc.setFontSize(11);
-    doc.setFont('Helvetica', 'bold');
-    doc.text(`${idx + 1}. ${r.name}`, 14, y);
-    y += 6;
-
-    // 方程
-    doc.setFontSize(10);
-    doc.setFont('Helvetica', 'normal');
-    const eqText = `  方程式：${r.equation || '(未显示)'}`;
-    doc.text(eqText, 14, y);
-    y += 5;
-
-    // 所属章/物质
+    const rate = Math.round(rec.lastCorrect / rec.reviewCount * 100);
     const chName = r.chapterName || '';
     const subName = r.substanceName || '';
-    doc.setFontSize(9);
-    doc.setTextColor(100);
-    doc.text(`  ${chName} - ${subName}`, 14, y);
-    y += 4;
+    const icon = r.substanceIcon || '';
 
-    // 复习情况
-    const rate = Math.round(rec.lastCorrect / rec.reviewCount * 100);
-    doc.text(`  复习 ${rec.reviewCount} 次 · 正确率 ${rate}%`, 14, y);
-    y += 4;
-
-    // 现象/提示
-    if (r.phenomenon) {
-      doc.text(`  现象：${r.phenomenon}`, 14, y);
-      y += 4;
-    }
-
-    doc.setTextColor(0);
-    y += 4;
+    html += `
+      <div style="margin:10px 0;padding:10px 12px;border:1px solid #e0e0e0;border-radius:8px;background:#fafafa;">
+        <div style="font-size:14px;font-weight:bold;margin-bottom:4px;">
+          ${idx + 1}. ${icon} ${r.name}
+        </div>
+        <div style="font-size:13px;font-family:'Times New Roman',serif;background:#fff;padding:6px 10px;border-radius:4px;margin:4px 0;border:1px solid #eee;">
+          ${r.equation || ''}
+        </div>
+        <div style="font-size:11px;color:#888;">
+          ${chName} - ${subName} · 复习${rec.reviewCount}次 · 正确率${rate}%
+        </div>
+        ${r.phenomenon ? `<div style="font-size:11px;color:#555;">👁️ ${r.phenomenon}</div>` : ''}
+        ${r.note ? `<div style="font-size:11px;color:#e67e22;">💡 ${r.note}</div>` : ''}
+      </div>
+    `;
   });
 
-  // 页脚
-  const pageCount = doc.internal.getNumberOfPages();
-  for (let i = 1; i <= pageCount; i++) {
-    doc.setPage(i);
-    doc.setFontSize(8);
-    doc.setTextColor(150);
-    doc.text(`化学复习错题集 - 第 ${i} / ${pageCount} 页`, 105, 290, { align: 'center' });
-  }
+  html += `<div style="text-align:center;font-size:10px;color:#aaa;margin-top:20px;">化学复习 - 错题集 PDF 导出</div>`;
+  div.innerHTML = html;
+  document.body.appendChild(div);
 
-  doc.save('化学错题集.pdf');
+  // 用 window.print 打印为PDF（支持中文）
+  const style = document.createElement('style');
+  style.textContent = `
+    @media print {
+      body { margin: 0; padding: 0; }
+      @page { margin: 10mm; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  window.print();
+
+  // 清理
+  document.head.removeChild(style);
+  document.body.removeChild(div);
 }

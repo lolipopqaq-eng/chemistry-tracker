@@ -2083,7 +2083,21 @@
             "name": "分子间作用力",
             "icon": "💨",
             "note": "范德华力+氢键(使H₂O沸点异常高)",
-            "reactions": []
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "范德华力的影响因素",
+                "a": "分子量越大→范德华力越大→熔沸点越高"
+              },
+              {
+                "q": "氢键形成的条件",
+                "a": "与电负性大的F/O/N相连的H原子"
+              },
+              {
+                "q": "冰的密度为什么比水小？",
+                "a": "水结冰时氢键使分子间形成较大空隙"
+              }
+            ]
           }
         ]
       }
@@ -2663,7 +2677,21 @@
             "name": "化学平衡",
             "icon": "⚖️",
             "note": "v正=v逆≠0，各组分量不变(逆等动定变)。勒夏特列原理：改变条件→平衡向减弱该改变的方向移动",
-            "reactions": []
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "化学平衡的特征（5个字）",
+                "a": "逆等动定变"
+              },
+              {
+                "q": "勒夏特列原理的内容",
+                "a": "改变影响平衡的一个因素，平衡向减弱该改变的方向移动"
+              },
+              {
+                "q": "催化剂对化学平衡的影响",
+                "a": "同等改变正逆反应速率，不改变平衡位置和转化率"
+              }
+            ]
           },
           {
             "id": "ch6_balance_sub",
@@ -3106,7 +3134,21 @@
             "name": "石油与煤",
             "icon": "⛽",
             "note": "石油：分馏(物理)、裂化裂解(化学)。煤：干馏(化学)、气化、液化",
-            "reactions": []
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "石油的分馏是什么变化？",
+                "a": "物理变化（利用沸点不同分离）"
+              },
+              {
+                "q": "石油的裂化和裂解的区别",
+                "a": "裂化→提高轻质油产量；裂解→制乙烯等短链烯烃"
+              },
+              {
+                "q": "煤的干馏是什么变化？",
+                "a": "化学变化（隔绝空气加强热）"
+              }
+            ]
           },
           {
             "id": "ch8_metallurgy",
@@ -3149,14 +3191,46 @@
             "name": "绿色化学",
             "icon": "🌿",
             "note": "原子经济性(无副产物)；原子利用率=目标产物原子量/所有产物原子量×100%",
-            "reactions": []
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "原子经济性的含义",
+                "a": "无副产物，所有反应物转化为目标产物"
+              },
+              {
+                "q": "原子利用率的计算公式",
+                "a": "目标产物原子量÷所有产物原子量之和×100%"
+              },
+              {
+                "q": "哪类反应的原子利用率最高？",
+                "a": "加成反应（无副产物）"
+              }
+            ]
           },
           {
             "id": "ch8_env",
             "name": "环境保护",
             "icon": "🌍",
             "note": "酸雨(pH<5.6，SO₂+NOₓ)、温室效应(CO₂)、臭氧层破坏(氟氯烃)、水体富营养化(N/P)",
-            "reactions": []
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "酸雨的pH范围？主要成因？",
+                "a": "pH<5.6，SO₂和NOₓ的排放"
+              },
+              {
+                "q": "温室效应的主要气体",
+                "a": "CO₂、CH₄、N₂O"
+              },
+              {
+                "q": "臭氧层破坏的主要原因",
+                "a": "氟氯烃(氟利昂CFCl₃)的排放"
+              },
+              {
+                "q": "水体富营养化的原因",
+                "a": "含N/P的洗涤剂和化肥排入水体"
+              }
+            ]
           }
         ]
       }
@@ -3225,8 +3299,16 @@
             "id": "ch9_heat_s",
             "name": "反应热/焓变",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch9_hs1",
+                "name": "焓变定义",
+                "equation": "ΔH = H(产物) - H(反应物)",
+                "category": "热力学",
+                "note": "💯 ΔH<0放热，ΔH>0吸热"
+              }
+            ]
           },
           {
             "id": "ch9_thermo",
@@ -3309,15 +3391,47 @@
             "id": "ch9_rate_s",
             "name": "化学反应速率",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "v=Δc/Δt中各字母含义",
+                "a": "v—反应速率；Δc—浓度变化；Δt—时间间隔"
+              },
+              {
+                "q": "速率之比等于什么？",
+                "a": "化学计量数之比"
+              },
+              {
+                "q": "温度升高10℃，反应速率一般增加____倍",
+                "a": "2~4倍"
+              },
+              {
+                "q": "影响反应速率的因素",
+                "a": "内因(物质本身性质)；外因(浓度/温度/压强/催化剂/表面积)"
+              }
+            ]
           },
           {
             "id": "ch9_eq_s",
             "name": "化学平衡移动",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "K只与____有关",
+                "a": "温度"
+              },
+              {
+                "q": "Qc与K的关系判断平衡移动方向",
+                "a": "Qc<K→正移；Qc=K→平衡；Qc>K→逆移"
+              },
+              {
+                "q": "ΔH<0(放热)，升温时K怎么变？",
+                "a": "K减小（平衡逆移）"
+              }
+            ]
           }
         ]
       },
@@ -3329,21 +3443,44 @@
             "id": "ch9_ion_s",
             "name": "弱电解质的电离",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch9_ion1",
+                "name": "CH₃COOH电离平衡",
+                "equation": "CH₃COOH ⇌ CH₃COO⁻ + H⁺",
+                "category": "电离",
+                "note": "💯 Ka越小酸性越弱"
+              },
+              {
+                "id": "ch9_ion2",
+                "name": "NH₃·H₂O电离平衡",
+                "equation": "NH₃·H₂O ⇌ NH₄⁺ + OH⁻",
+                "category": "电离",
+                "note": "💯 Kb越小碱性越弱"
+              }
+            ]
           },
           {
             "id": "ch9_kwp",
             "name": "水的电离/Kw/pH",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch9_kw1",
+                "name": "水的电离",
+                "equation": "H₂O ⇌ H⁺ + OH⁻",
+                "category": "电离",
+                "note": "💯 Kw=1.0×10⁻¹⁴(25℃)"
+              }
+            ]
           },
           {
             "id": "ch9_hydrolysis",
             "name": "盐类的水解",
             "icon": "📋",
-            "note": "待补充",
+            "note": "",
             "reactions": [
               {
                 "id": "ch9_hy1",
@@ -3379,6 +3516,20 @@
                 "equation": "Al³⁺ + 3HCO₃⁻ = Al(OH)₃↓ + 3CO₂↑",
                 "category": "双水解",
                 "note": "💯 泡沫灭火器原理"
+              },
+              {
+                "id": "ch9_hy6",
+                "name": "NH₄⁺水解",
+                "equation": "NH₄⁺ + H₂O ⇌ NH₃·H₂O + H⁺",
+                "category": "水解",
+                "note": "💯 强酸弱碱盐→酸性"
+              },
+              {
+                "id": "ch9_hy7",
+                "name": "Al³⁺水解",
+                "equation": "Al³⁺ + 3H₂O ⇌ Al(OH)₃ + 3H⁺",
+                "category": "水解",
+                "note": ""
               }
             ],
             "knowledge": [
@@ -3393,6 +3544,10 @@
               {
                 "q": "越____越水解，越____越水解",
                 "a": "弱、稀"
+              },
+              {
+                "q": "盐类水解的规律是什么？",
+                "a": "谁弱谁水解，都弱都水解，越弱越水解，谁强显谁性"
               }
             ]
           }
@@ -3406,21 +3561,65 @@
             "id": "ch9_primary",
             "name": "原电池",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch9_p1",
+                "name": "锌锰干电池(负极)",
+                "equation": "Zn - 2e⁻ = Zn²⁺",
+                "category": "电极反应",
+                "note": "💯 普通干电池"
+              },
+              {
+                "id": "ch9_p2",
+                "name": "锌锰干电池(正极)",
+                "equation": "2MnO₂ + 2NH₄⁺ + 2e⁻ = Mn₂O₃ + 2NH₃ + H₂O",
+                "category": "电极反应",
+                "note": ""
+              },
+              {
+                "id": "ch9_p3",
+                "name": "铅蓄电池(放电负极)",
+                "equation": "Pb + SO₄²⁻ - 2e⁻ = PbSO₄",
+                "category": "电极反应",
+                "note": "💯 可充电"
+              },
+              {
+                "id": "ch9_p4",
+                "name": "铅蓄电池(放电正极)",
+                "equation": "PbO₂ + 4H⁺ + SO₄²⁻ + 2e⁻ = PbSO₄ + 2H₂O",
+                "category": "电极反应",
+                "note": ""
+              }
+            ]
           },
           {
             "id": "ch9_electrol",
             "name": "电解池",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch9_el1",
+                "name": "电解CuCl₂(总)",
+                "equation": "CuCl₂ =(电解) Cu + Cl₂↑",
+                "category": "电解",
+                "note": "💯 阳极Cl₂，阴极Cu"
+              },
+              {
+                "id": "ch9_el2",
+                "name": "电镀铜(一般)",
+                "equation": "Cu²⁺ + 2e⁻ = Cu",
+                "category": "电镀",
+                "note": "💯 镀件接阴极"
+              }
+            ]
           },
           {
             "id": "ch9_corrosion",
             "name": "金属腐蚀与防护",
             "icon": "📋",
-            "note": "待补充",
+            "note": "",
             "reactions": [
               {
                 "id": "ch9_c1",
@@ -3457,6 +3656,14 @@
               {
                 "q": "牺牲阳极法保护的金属作____极",
                 "a": "阳"
+              },
+              {
+                "q": "吸氧腐蚀和析氢腐蚀哪个为主？",
+                "a": "吸氧腐蚀为主（Fe-C-H₂O，中性或弱酸性）"
+              },
+              {
+                "q": "牺牲阳极法保护的金属作什么极？",
+                "a": "阴极（被保护金属作正极，活泼金属作负极）"
               }
             ]
           },
@@ -3671,15 +3878,43 @@
             "id": "ch10_ao",
             "name": "原子结构/能级",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "能层K/L/M/N最多电子数",
+                "a": "2/8/18/32"
+              },
+              {
+                "q": "核外电子排布遵守的三个原则",
+                "a": "能量最低原理、泡利不相容原理、洪特规则"
+              },
+              {
+                "q": "d轨道最多容纳多少个电子？",
+                "a": "10个（5个轨道，各2个电子）"
+              }
+            ]
           },
           {
             "id": "ch10_econfig",
             "name": "电子排布式",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "写出Fe的电子排布式",
+                "a": "[Ar]3d⁶4s²"
+              },
+              {
+                "q": "Cr的电子排布（洪特规则特例）",
+                "a": "[Ar]3d⁵4s¹（半满更稳定）"
+              },
+              {
+                "q": "Cu的电子排布（洪特规则特例）",
+                "a": "[Ar]3d¹⁰4s¹（全满更稳定）"
+              }
+            ]
           },
           {
             "id": "ch10_econfig",
@@ -3689,32 +3924,16 @@
             "reactions": [],
             "knowledge": [
               {
-                "q": "s轨道有____个，最多____个电子",
-                "a": "1、2"
+                "q": "写出Fe的电子排布式",
+                "a": "[Ar]3d⁶4s²"
               },
               {
-                "q": "p轨道有____个，最多____个电子",
-                "a": "3、6"
+                "q": "Cr的电子排布（洪特规则特例）",
+                "a": "[Ar]3d⁵4s¹（半满更稳定）"
               },
               {
-                "q": "d轨道有____个，最多____个电子",
-                "a": "5、10"
-              },
-              {
-                "q": "洪特规则：简并轨道电子优先____占据且自旋____",
-                "a": "单独、平行"
-              },
-              {
-                "q": "Li电子排布：____；Na：____；K：____",
-                "a": "1s²2s¹、[Ne]3s¹、[Ar]4s¹"
-              },
-              {
-                "q": "电负性最大的是____（4.0）",
-                "a": "F"
-              },
-              {
-                "q": "第一电离能反常：N____O，Mg____Al",
-                "a": ">、>"
+                "q": "Cu的电子排布（洪特规则特例）",
+                "a": "[Ar]3d¹⁰4s¹（全满更稳定）"
               }
             ]
           }
@@ -3728,15 +3947,51 @@
             "id": "ch10_hybrid",
             "name": "杂化轨道/VSEPR",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch10_h1",
+                "name": "sp杂化(BeCl₂)",
+                "equation": "Be + Cl₂ = BeCl₂",
+                "category": "杂化",
+                "note": "💯 sp→直线180°"
+              },
+              {
+                "id": "ch10_h2",
+                "name": "sp²杂化(BF₃)",
+                "equation": "B + 3/2F₂ = BF₃",
+                "category": "杂化",
+                "note": "💯 sp²→平面三角形120°"
+              },
+              {
+                "id": "ch10_h3",
+                "name": "sp³杂化(CH₄)",
+                "equation": "C + 2H₂ = CH₄",
+                "category": "杂化",
+                "note": "💯 sp³→正四面体109°28′"
+              }
+            ]
           },
           {
             "id": "ch10_polar",
             "name": "分子极性/手性",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "极性分子的判断依据",
+                "a": "正负电荷中心是否重合；不重合→极性分子"
+              },
+              {
+                "q": "非极性分子的例子",
+                "a": "CH₄、CO₂、BF₃、CCl₄、N₂、O₂"
+              },
+              {
+                "q": "手性碳的条件",
+                "a": "连有四个不同基团的碳原子"
+              }
+            ]
           },
           {
             "id": "ch10_geometry",
@@ -3785,15 +4040,43 @@
             "id": "ch10_crytype",
             "name": "晶体类型",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "四种晶体类型及熔沸点比较",
+                "a": "共价晶体>离子晶体>金属晶体>分子晶体"
+              },
+              {
+                "q": "石墨属于什么晶体？",
+                "a": "混合型晶体（层内共价键，层间范德华力，可导电）"
+              }
+            ]
           },
           {
             "id": "ch10_crycalc",
             "name": "晶胞计算",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "均摊法中顶点/棱心/面心/体心的占位",
+                "a": "顶点1/8、棱心1/4、面心1/2、体心1"
+              },
+              {
+                "q": "NaCl晶胞中Na⁺和Cl⁻各几个？",
+                "a": "各4个（共8个离子）"
+              },
+              {
+                "q": "CsCl晶胞中Cs⁺和Cl⁻各几个？",
+                "a": "各1个"
+              },
+              {
+                "q": "NaCl的配位数",
+                "a": "6（Na⁺周围6个Cl⁻）"
+              }
+            ]
           },
           {
             "id": "ch10_crystal_sub",
@@ -3926,8 +4209,18 @@
             "id": "ch11_class",
             "name": "官能团分类",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "写出常见官能团：卤代烃/醇/酚/醛/羧酸/酯",
+                "a": "-X/-OH/-OH(连苯环)/-CHO/-COOH/-COO-"
+              },
+              {
+                "q": "醇和酚的-OH有何不同？",
+                "a": "醇-OH连烷基；酚-OH直接连苯环"
+              }
+            ]
           }
         ]
       },
@@ -3939,12 +4232,39 @@
             "id": "ch11_alkane",
             "name": "烷烃",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": [],
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_alk1",
+                "name": "甲烷燃烧",
+                "equation": "CH₄ + 2O₂ =(点燃) CO₂ + 2H₂O",
+                "category": "燃烧",
+                "phenomenon": "蓝色火焰",
+                "note": "💯 烷烃完全燃烧"
+              },
+              {
+                "id": "ch11_alk2",
+                "name": "高温裂解制烯烃",
+                "equation": "C₄H₁₀ =(高温) C₂H₆ + C₂H₄",
+                "category": "裂解",
+                "note": "💯 长链→短链烯烃"
+              },
+              {
+                "id": "ch11_alk3",
+                "name": "丙烷燃烧",
+                "equation": "C₃H₈ + 5O₂ =(点燃) 3CO₂ + 4H₂O",
+                "category": "燃烧",
+                "note": ""
+              }
+            ],
             "knowledge": [
               {
                 "q": "烷烃通式：____(n≥1)",
                 "a": "CₙH₂ₙ₊₂"
+              },
+              {
+                "q": "烷烃的通式",
+                "a": "CₙH₂ₙ₊₂(n≥1)"
               }
             ]
           },
@@ -3952,8 +4272,30 @@
             "id": "ch11_alkene",
             "name": "烯烃",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": [],
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_ene1",
+                "name": "丙烯+HBr",
+                "equation": "CH₃CH=CH₂ + HBr → CH₃CHBrCH₃",
+                "category": "加成",
+                "note": "💯 马氏规则(H加在含H多的C上)"
+              },
+              {
+                "id": "ch11_ene2",
+                "name": "丙烯+H₂O",
+                "equation": "CH₃CH=CH₂ + H₂O →(H⁺/△) CH₃CHOHCH₃",
+                "category": "加成",
+                "note": "💯 2-丙醇"
+              },
+              {
+                "id": "ch11_ene3",
+                "name": "丙烯+H₂",
+                "equation": "CH₃CH=CH₂ + H₂ →(Ni/△) CH₃CH₂CH₃",
+                "category": "加成",
+                "note": "💯 丙烷"
+              }
+            ],
             "knowledge": [
               {
                 "q": "烯烃通式：____(n≥2)",
@@ -3962,6 +4304,14 @@
               {
                 "q": "马氏规则：H加在含H____的双键C上",
                 "a": "多"
+              },
+              {
+                "q": "烯烃的通式",
+                "a": "CₙH₂ₙ(n≥2)"
+              },
+              {
+                "q": "顺反异构的条件",
+                "a": "双键碳上各连两个不同的基团"
               }
             ]
           },
@@ -3969,8 +4319,16 @@
             "id": "ch11_alkyne",
             "name": "炔烃",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": [],
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_yne1",
+                "name": "乙炔+H₂(部分→乙烯)",
+                "equation": "C₂H₂ + H₂ →(Pd/△) C₂H₄",
+                "category": "加成",
+                "note": "💯 Pd催化剂可控"
+              }
+            ],
             "knowledge": [
               {
                 "q": "乙炔的分子式____，结构式____",
@@ -3979,6 +4337,10 @@
               {
                 "q": "乙炔是____结构",
                 "a": "直线"
+              },
+              {
+                "q": "炔烃的通式",
+                "a": "CₙH₂ₙ₋₂(n≥2)"
               }
             ]
           },
@@ -3986,8 +4348,23 @@
             "id": "ch11_aromatic",
             "name": "芳香烃",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": [],
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_ar5",
+                "name": "苯+Cl₂(取代)",
+                "equation": "C₆H₆ + Cl₂ →(FeCl₃) C₆H₅Cl + HCl",
+                "category": "取代",
+                "note": "💯 氯苯，催化剂FeCl₃"
+              },
+              {
+                "id": "ch11_ar6",
+                "name": "甲苯+3H₂",
+                "equation": "C₆H₅CH₃ + 3H₂ →(Ni/△) C₆H₁₁CH₃",
+                "category": "加成",
+                "note": "💯 甲基环己烷"
+              }
+            ],
             "knowledge": [
               {
                 "q": "苯的分子式____，____结构",
@@ -3996,6 +4373,14 @@
               {
                 "q": "苯易____，难____，难____",
                 "a": "取代、加成、氧化"
+              },
+              {
+                "q": "苯不能使____和____褪色",
+                "a": "溴水、酸性KMnO₄"
+              },
+              {
+                "q": "甲苯能使____褪色，为什么？",
+                "a": "酸性KMnO₄，苯环活化使甲基被氧化为-COOH"
               }
             ]
           }
@@ -4009,29 +4394,140 @@
             "id": "ch11_halo",
             "name": "卤代烃",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_hal8",
+                "name": "1,2-二溴乙烷+NaOH(水解→乙二醇)",
+                "equation": "CH₂BrCH₂Br + 2NaOH →(H₂O/△) CH₂OHCH₂OH + 2NaBr",
+                "category": "水解",
+                "note": "💯 卤代烃→二元醇"
+              },
+              {
+                "id": "ch11_hal9",
+                "name": "CH₃Cl+NaOH",
+                "equation": "CH₃Cl + NaOH →(H₂O/△) CH₃OH + NaCl",
+                "category": "水解",
+                "note": ""
+              }
+            ]
           },
           {
             "id": "ch11_alc",
             "name": "醇/酚",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_alc1",
+                "name": "甲醇燃烧",
+                "equation": "2CH₃OH + 3O₂ =(点燃) 2CO₂ + 4H₂O",
+                "category": "燃烧",
+                "note": ""
+              },
+              {
+                "id": "ch11_alc2",
+                "name": "丙三醇(甘油)+Na",
+                "equation": "2C₃H₅(OH)₃ + 6Na = 2C₃H₅(ONa)₃ + 3H₂↑",
+                "category": "置换",
+                "note": ""
+              },
+              {
+                "id": "ch11_alc3",
+                "name": "丙三醇+HNO₃(硝化甘油)",
+                "equation": "C₃H₅(OH)₃ + 3HNO₃ →(浓H₂SO₄) C₃H₅(ONO₂)₃ + 3H₂O",
+                "category": "酯化",
+                "note": "💯 烈性炸药"
+              }
+            ]
           },
           {
             "id": "ch11_ald",
             "name": "醛/酮",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_ald6",
+                "name": "甲醛+O₂",
+                "equation": "HCHO + O₂ = CO₂ + H₂O",
+                "category": "氧化",
+                "note": "💯 甲醛有强还原性"
+              },
+              {
+                "id": "ch11_ald7",
+                "name": "乙醛+H₂",
+                "equation": "CH₃CHO + H₂ →(Ni/△) CH₃CH₂OH",
+                "category": "还原",
+                "note": "💯 醛+H₂→醇"
+              },
+              {
+                "id": "ch11_ald8",
+                "name": "乙醛+O₂",
+                "equation": "2CH₃CHO + O₂ →(催化剂) 2CH₃COOH",
+                "category": "氧化",
+                "note": "💯 乙醛→乙酸"
+              },
+              {
+                "id": "ch11_ald9",
+                "name": "丙酮+H₂",
+                "equation": "CH₃COCH₃ + H₂ →(Ni/△) CH₃CHOHCH₃",
+                "category": "还原",
+                "note": "💯 酮+H₂→仲醇"
+              },
+              {
+                "id": "ch11_ald10",
+                "name": "甲醛+银氨溶液",
+                "equation": "HCHO + 4Ag(NH₃)₂OH →(△) (NH₄)₂CO₃ + 4Ag↓ + 6NH₃ + 2H₂O",
+                "category": "银镜",
+                "note": "💯 甲醛有2个醛基当量"
+              },
+              {
+                "id": "ch11_ald11",
+                "name": "乙醛+Cu(OH)₂(砖红沉淀)",
+                "equation": "CH₃CHO + 2Cu(OH)₂ + NaOH →(△) CH₃COONa + Cu₂O↓ + 3H₂O",
+                "category": "氧化",
+                "phenomenon": "砖红色沉淀",
+                "note": ""
+              }
+            ]
           },
           {
             "id": "ch11_ac",
             "name": "羧酸/酯",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_ac1",
+                "name": "甲酸+Cu(OH)₂",
+                "equation": "HCOOH + 2Cu(OH)₂ = CO₂↑ + Cu₂O↓ + 3H₂O",
+                "category": "氧化",
+                "note": "💯 甲酸有醛基"
+              },
+              {
+                "id": "ch11_ac2",
+                "name": "乙二酸(草酸)+KMnO₄",
+                "equation": "5H₂C₂O₄ + 2KMnO₄ + 3H₂SO₄ = K₂SO₄ + 2MnSO₄ + 10CO₂↑ + 8H₂O",
+                "category": "氧化",
+                "phenomenon": "紫红色褪去",
+                "note": ""
+              },
+              {
+                "id": "ch11_ac3",
+                "name": "酯的水解(酸性)",
+                "equation": "RCOOR' + H₂O ⇌(H⁺/△) RCOOH + R'OH",
+                "category": "水解",
+                "note": "💯 可逆反应"
+              },
+              {
+                "id": "ch11_ac4",
+                "name": "酯的皂化(碱性)",
+                "equation": "RCOOR' + NaOH →(△) RCOONa + R'OH",
+                "category": "皂化",
+                "note": "💯 不可逆"
+              }
+            ]
           },
           {
             "id": "ch11_halide_d",
@@ -4262,22 +4758,73 @@
             "id": "ch11_carb",
             "name": "糖类",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_carb1",
+                "name": "葡萄糖发酵→乙醇",
+                "equation": "C₆H₁₂O₆ →(酒化酶) 2C₂H₅OH + 2CO₂↑",
+                "category": "发酵",
+                "note": "💯 酿酒原理"
+              },
+              {
+                "id": "ch11_carb2",
+                "name": "纤维素水解",
+                "equation": "(C₆H₁₀O₅)ₙ + nH₂O →(酸/△) nC₆H₁₂O₆(葡萄糖)",
+                "category": "水解",
+                "note": ""
+              },
+              {
+                "id": "ch11_carb3",
+                "name": "葡萄糖→己六醇(H₂还原)",
+                "equation": "C₆H₁₂O₆ + H₂ →(Ni/△) C₆H₁₄O₆",
+                "category": "还原",
+                "note": ""
+              }
+            ]
           },
           {
             "id": "ch11_prot",
             "name": "蛋白质",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_pr8",
+                "name": "氨基酸两性(与酸)",
+                "equation": "H₂NCHRCOOH + HCl = Cl⁻H₃N⁺CHRCOOH",
+                "category": "两性",
+                "note": ""
+              },
+              {
+                "id": "ch11_pr9",
+                "name": "氨基酸两性(与碱)",
+                "equation": "H₂NCHRCOOH + NaOH = H₂NCHRCOONa + H₂O",
+                "category": "两性",
+                "note": ""
+              }
+            ]
           },
           {
             "id": "ch11_nucl",
             "name": "核酸",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [],
+            "knowledge": [
+              {
+                "q": "DNA和RNA碱基差异",
+                "a": "DNA: A/T/C/G；RNA: A/U/C/G"
+              },
+              {
+                "q": "核酸的基本组成单位",
+                "a": "核苷酸（核苷+磷酸）"
+              },
+              {
+                "q": "DNA是什么结构？",
+                "a": "双螺旋结构"
+              }
+            ]
           },
           {
             "id": "ch11_sugar_detail",
@@ -4390,15 +4937,66 @@
             "id": "ch11_add",
             "name": "加成聚合",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_add1",
+                "name": "乙烯→聚乙烯",
+                "equation": "nCH₂=CH₂ →(催化剂) [CH₂-CH₂]ₙ",
+                "category": "加聚",
+                "note": "💯 PE，最常见塑料"
+              },
+              {
+                "id": "ch11_add2",
+                "name": "丙烯→聚丙烯",
+                "equation": "nCH₃CH=CH₂ →(催化剂) [CH(CH₃)-CH₂]ₙ",
+                "category": "加聚",
+                "note": "💯 PP"
+              },
+              {
+                "id": "ch11_add3",
+                "name": "氯乙烯→PVC",
+                "equation": "nCH₂=CHCl →(催化剂) [CH₂-CHCl]ₙ",
+                "category": "加聚",
+                "note": "💯 聚氯乙烯"
+              },
+              {
+                "id": "ch11_add4",
+                "name": "1,3-丁二烯→顺丁橡胶",
+                "equation": "nCH₂=CH-CH=CH₂ →(催化剂) [CH₂-CH=CH-CH₂]ₙ",
+                "category": "加聚",
+                "note": ""
+              }
+            ]
           },
           {
             "id": "ch11_cond",
             "name": "缩合聚合",
             "icon": "📋",
-            "note": "待补充",
-            "reactions": []
+            "note": "",
+            "reactions": [
+              {
+                "id": "ch11_cond1",
+                "name": "乙二醇+对苯二甲酸→涤纶",
+                "equation": "nHOCH₂CH₂OH + nHOOC-C₆H₄-COOH →(催化剂) PET + (2n-1)H₂O",
+                "category": "缩聚",
+                "note": "💯 涤纶(PET)"
+              },
+              {
+                "id": "ch11_cond2",
+                "name": "苯酚+甲醛→酚醛树脂",
+                "equation": "nC₆H₅OH + nHCHO →(催化剂) 酚醛树脂 + nH₂O",
+                "category": "缩聚",
+                "note": "💯 电木"
+              },
+              {
+                "id": "ch11_cond3",
+                "name": "乳酸→聚乳酸(PLA)",
+                "equation": "nC₃H₆O₃ →(催化剂) [OCH(CH₃)CO]ₙ + nH₂O",
+                "category": "缩聚",
+                "note": "💯 可降解塑料"
+              }
+            ]
           },
           {
             "id": "ch11_poly_detail",
