@@ -87,6 +87,20 @@ export default function App() {
     setDetailReaction(null);
   };
 
+  // 知识点做完→下一物质/节
+  const goToNextSubstance = () => {
+    if (!currentSection || !currentSubstance) return;
+    const substances = currentSection.substances;
+    const curIdx = substances.findIndex(s => s.id === currentSubstance.id);
+    if (curIdx >= 0 && curIdx < substances.length - 1) {
+      // 同一节的下一物质
+      setActiveSubstance(substances[curIdx + 1].id);
+    } else {
+      // 当前节没有下一物质→返回列表
+      setActiveSubstance(null);
+    }
+  };
+
   // Export
   const handleExport = () => {
     const data = {
@@ -302,7 +316,7 @@ export default function App() {
                 return null;
               })();
               return sub && sub.knowledge && sub.knowledge.length > 0 ? (
-                <KnowledgeCard knowledge={sub.knowledge} />
+                <KnowledgeCard knowledge={sub.knowledge} onComplete={() => goToNextSubstance()} />
               ) : null;
             })()}
 

@@ -484,7 +484,26 @@ body {
   font-size: 13px;
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 6px;
+  margin-bottom: 2px;
+}
+.knowledge-block .knowledge-hint {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+.knowledge-block .knowledge-next {
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: var(--success);
+  color: #fff;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+.knowledge-block .knowledge-next:active {
+  transform: scale(0.97);
 }
 .knowledge-block .knowledge-item {
   cursor: pointer;

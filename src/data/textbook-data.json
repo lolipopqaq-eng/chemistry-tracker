@@ -2865,6 +2865,34 @@
                 "equation": "蛋白质 + 浓HNO₃ →(△) 黄色",
                 "category": "检验",
                 "note": "💯 黄蛋白反应，检验含苯环蛋白质"
+              },
+              {
+                "id": "ch7_pr2",
+                "name": "蛋白质水解(酸催化)",
+                "equation": "蛋白质 + nH₂O →(酸/酶/△) 氨基酸",
+                "category": "水解",
+                "note": "💯 最终产物：α-氨基酸"
+              },
+              {
+                "id": "ch7_pr3",
+                "name": "氨基酸两性(-NH₂)",
+                "equation": "RCH(NH₂)COOH + H⁺ = RCH(NH₃⁺)COOH",
+                "category": "两性",
+                "note": "💯 氨基显碱性"
+              },
+              {
+                "id": "ch7_pr4",
+                "name": "氨基酸两性(-COOH)",
+                "equation": "RCH(NH₂)COOH + OH⁻ = RCH(NH₂)COO⁻ + H₂O",
+                "category": "两性",
+                "note": "💯 羧基显酸性"
+              },
+              {
+                "id": "ch7_pr5",
+                "name": "氨基酸缩合(二肽)",
+                "equation": "2H₂NCH₂COOH →(催化剂) H₂NCH₂CONHCH₂COOH + H₂O",
+                "category": "缩合",
+                "note": "💯 肽键 -CONH-"
               }
             ]
           },
@@ -4211,9 +4239,57 @@
                 "equation": "蛋白质 + 浓HNO₃ →(△) 黄色",
                 "category": "检验",
                 "note": "💯 含苯环的蛋白质"
+              },
+              {
+                "id": "ch11_pr3",
+                "name": "蛋白质本质水解",
+                "equation": "多肽 + nH₂O →(酸/碱/酶/△) 各种α-氨基酸",
+                "category": "水解",
+                "note": "💯 多种氨基酸混合物"
+              },
+              {
+                "id": "ch11_pr4",
+                "name": "氨基酸两性电离",
+                "equation": "H₃N⁺CHRCOO⁻ ⇌ H₂NCHRCOOH + H⁺",
+                "category": "电离",
+                "note": "💯 等电点pH"
+              },
+              {
+                "id": "ch11_pr5",
+                "name": "盐析(可逆沉淀)",
+                "equation": "蛋白质 + 饱和(NH₄)₂SO₄ →(可逆) 蛋白质沉淀",
+                "category": "盐析",
+                "note": "💯 物理变化，可恢复"
+              },
+              {
+                "id": "ch11_pr6",
+                "name": "变性(不可逆)",
+                "equation": "蛋白质 →(加热/酸/碱/重金属/酒精) 变性蛋白质",
+                "category": "变性",
+                "note": "💯 化学变化，不可逆"
+              },
+              {
+                "id": "ch11_pr7",
+                "name": "缩二脲反应",
+                "equation": "蛋白质 + CuSO₄(NaOH) = 紫红色络合物",
+                "category": "检验",
+                "note": "💯 多肽/蛋白质专有反应"
               }
             ],
-            "knowledge": []
+            "knowledge": [
+              {
+                "q": "氨基酸的通式是什么？",
+                "a": "H₂N-CHR-COOH (R为侧链基团)"
+              },
+              {
+                "q": "多肽中连接氨基酸的键叫什么？",
+                "a": "肽键(-CO-NH-)，脱水缩合形成"
+              },
+              {
+                "q": "氨基酸的共性有哪些？",
+                "a": "①能成盐(两性)；②脱水缩合(形成肽键)"
+              }
+            ]
           }
         ]
       },
