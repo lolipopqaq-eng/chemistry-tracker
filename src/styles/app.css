@@ -560,6 +560,12 @@ body {
 .teacher-card-top .teacher-contact a:hover {
   color: var(--primary);
 }
+.teacher-card-top .copy-tip {
+  font-size: 11px;
+  color: var(--success);
+  margin-top: 3px;
+  font-weight: 500;
+}
 
 /* Responsive */
 @media (max-width: 600px) {
