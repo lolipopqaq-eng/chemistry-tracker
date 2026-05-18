@@ -157,7 +157,7 @@ export default function App() {
               onClick={() => { setActiveChapter(ch.id); setActiveSubstance(null); }}
             >
               <span className="side-nav-ch-name">
-                {ch.name.replace(/^第.+? /, '')}
+                {ch.name.replace(/^.+?册_/, '')}
               </span>
               <span className="side-nav-ch-count">
                 {ch.sections.reduce((a,s) => a + s.substances.reduce((b,sub) => b + sub.reactions.length, 0), 0)}
