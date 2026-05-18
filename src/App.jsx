@@ -10,6 +10,7 @@ import KnowledgeCard from './components/KnowledgeCard';
 import MindMap from './components/MindMap';
 import ReactionDetail from './components/ReactionDetail';
 import ReactionHistory from './components/ReactionHistory';
+import { exportWrongReactionsPDF } from './utils/exportPdf';
 import ConfirmModal from './components/ConfirmModal';
 import './styles/app.css';
 
@@ -220,6 +221,7 @@ export default function App() {
               <button className="btn-icon" onClick={handleExport} title="导出">💾</button>
               <button className="btn-icon" onClick={() => fileInputRef.current?.click()} title="导入">📂</button>
               <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+              <button className="btn-icon" onClick={() => exportWrongReactionsPDF(records, ALL_REACTIONS, TEXTBOOK)} title="导出错题PDF" style={{fontSize:'12px', color:'var(--primary)'}}>📕</button>
               <button className="btn-icon" onClick={() => setConfirmReset(true)} title="重置" style={{color:'var(--danger)',fontSize:'12px'}}>🗑️</button>
             </div>
           </div>

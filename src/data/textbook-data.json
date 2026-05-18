@@ -4041,17 +4041,17 @@
             "reactions": [
               {
                 "id": "ch11_hal1",
-                "name": "卤代烃水解",
-                "equation": "RX + NaOH →(H₂O/△) ROH + NaX",
+                "name": "溴乙烷水解(制乙醇)",
+                "equation": "CH₃CH₂Br + NaOH →(H₂O/△) CH₃CH₂OH + NaBr",
                 "category": "取代",
-                "note": "💯 制醇"
+                "note": "💯 卤代烃→醇"
               },
               {
                 "id": "ch11_hal2",
-                "name": "卤代烃消去",
-                "equation": "RX + NaOH →(醇/△) 烯烃 + NaX + H₂O",
+                "name": "溴乙烷消去(制乙烯)",
+                "equation": "CH₃CH₂Br + NaOH →(C₂H₅OH/△) CH₂=CH₂↑ + NaBr + H₂O",
                 "category": "消去",
-                "note": "💯 扎伊采夫规则"
+                "note": "💯 卤代烃→烯烃"
               }
             ],
             "knowledge": []
