@@ -614,7 +614,7 @@ body {
 .history-card .hist-name { flex: 1; }
 .history-card .hist-time { font-size: 10px; color: var(--text-secondary); }
 
-/* 思维导图 */
+/* 思维导图 - 完全展开 */
 .mindmap-block {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -631,53 +631,45 @@ body {
   border-bottom: 1px solid var(--border);
 }
 .mind-node {
-  margin: 1px 0;
+  margin: 0;
 }
 .mind-node-row {
   display: flex;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
-  padding: 3px 4px;
-  border-radius: 4px;
+  padding: 2px 4px;
   font-size: 12px;
-  transition: background 0.1s;
+  line-height: 1.6;
 }
-.mind-node-row:hover {
-  background: #f0f2f5;
-}
-.mind-arrow {
-  font-size: 8px;
+.mind-line {
   width: 14px;
   text-align: center;
-  color: var(--text-secondary);
-  transition: transform 0.12s;
+  color: #ddd;
   flex-shrink: 0;
-}
-.mind-arrow.open {
-  transform: rotate(90deg);
+  font-size: 10px;
 }
 .mind-dot {
   width: 14px;
   text-align: center;
-  color: #ccc;
+  color: transparent;
   flex-shrink: 0;
 }
 .mind-icon {
-  font-size: 13px;
+  font-size: 12px;
   flex-shrink: 0;
+  margin-right: 2px;
 }
 .mind-name {
   color: var(--text);
-  line-height: 1.3;
 }
 .mind-name.leaf {
   color: var(--text-secondary);
   font-size: 11px;
 }
 .mind-children {
-  border-left: 1px solid #eee;
+  border-left: 1px solid #e5e5ea;
   margin-left: 6px;
+  padding-left: 0;
 }
 
 /* 教练，我想打篮球 */
