@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import teacherPhoto from '../assets/teacher.jpg';
-import wechatPay from '../assets/wechat-pay.jpg';
-import alipay from '../assets/alipay.jpg';
 
 export default function TeacherCard() {
   const [showBig, setShowBig] = useState(false);
-  const [showDonate, setShowDonate] = useState(false);
   const [copied, setCopied] = useState('');
 
   const copy = (text, label) => {
@@ -40,25 +37,6 @@ export default function TeacherCard() {
         <div className="photo-overlay" onClick={() => setShowBig(false)}>
           <img src={teacherPhoto} alt="冯老师" className="photo-big" />
           <div className="photo-close">点击任意位置关闭</div>
-        </div>
-      )}
-
-      {showDonate && (
-        <div className="photo-overlay" onClick={() => setShowDonate(false)}>
-          <div className="donate-box" onClick={(e) => e.stopPropagation()}>
-            <div className="donate-title">🥇 如果对你有帮助，欢迎打赏支持</div>
-            <div className="donate-codes">
-              <div className="donate-item">
-                <img src={wechatPay} alt="微信收款码" />
-                <span>微信</span>
-              </div>
-              <div className="donate-item">
-                <img src={alipay} alt="支付宝收款码" />
-                <span>支付宝</span>
-              </div>
-            </div>
-            <div className="donate-close" onClick={() => setShowDonate(false)}>关闭</div>
-          </div>
         </div>
       )}
     </>

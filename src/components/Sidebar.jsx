@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import wechatPay from '../assets/wechat-pay.jpg';
+import alipay from '../assets/alipay.jpg';
 
 export default function Sidebar() {
   const [showDonate, setShowDonate] = useState(false);
@@ -14,6 +16,7 @@ export default function Sidebar() {
     const bonus = Math.floor(Math.random() * 5) + 1;
     setHits(h => {
       const n = h + bonus;
+      if (n % 100 === 0) setTimeout(() => setFloating('🎉 已敲一吨！功德昭昭！'), 100);
       localStorage.setItem('wooden_fish', String(n));
       return n;
     });
@@ -40,6 +43,26 @@ export default function Sidebar() {
         </div>
         {floating && <div className="sidebar-float">{floating}</div>}
       </div>
+
+      {/* 打赏弹窗 */}
+      {showDonate && (
+        <div className="donate-overlay" onClick={() => setShowDonate(false)}>
+          <div className="donate-modal" onClick={e => e.stopPropagation()}>
+            <div className="donate-close" onClick={() => setShowDonate(false)}>✕</div>
+            <div className="donate-title">🤝 如果对你有帮助，欢迎打赏支持</div>
+            <div className="donate-codes">
+              <div className="donate-item">
+                <img src={wechatPay} alt="微信收款码" />
+                <span>微信</span>
+              </div>
+              <div className="donate-item">
+                <img src={alipay} alt="支付宝收款码" />
+                <span>支付宝</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
