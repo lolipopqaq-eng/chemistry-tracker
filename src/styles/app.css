@@ -47,16 +47,24 @@ body {
 }
 
 .side-nav-header {
-  padding: 16px 14px 10px;
+  padding: 12px 14px 8px;
   border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .side-nav-logo {
-  font-size: 20px;
-  margin-bottom: 2px;
+  font-size: 16px;
 }
 .side-nav-title {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.side-nav-subtitle {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-left: auto;
 }
 
 .side-nav-chapters {

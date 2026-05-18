@@ -144,8 +144,9 @@ export default function App() {
       {/* 左侧导航栏 */}
       <nav className="side-nav">
         <div className="side-nav-header">
-          <div className="side-nav-logo">🧪</div>
-          <div className="side-nav-title">高考化学</div>
+          <span className="side-nav-logo">🧪</span>
+          <span className="side-nav-title">化学复习</span>
+          <span className="side-nav-subtitle">{ALL_REACTIONS.length} 反应</span>
         </div>
         <div className="side-nav-chapters">
           {TEXTBOOK.chapters.map(ch => (
