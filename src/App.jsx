@@ -54,6 +54,18 @@ export default function App() {
 
   const currentChapter = TEXTBOOK.chapters.find(ch => ch.id === activeChapter);
 
+  // 当前节和当前物质（用于知识点跳转）
+  const currentSection = currentChapter?.sections.find(s => s.id === activeSection) || null;
+  const currentSubstance = (() => {
+    if (!currentChapter || !activeSubstance) return null;
+    for (const sec of currentChapter.sections) {
+      for (const sub of sec.substances) {
+        if (sub.id === activeSubstance) return sub;
+      }
+    }
+    return null;
+  })();
+
   // 选中的物质和它的反应
   const currentReactions = useMemo(() => {
     if (!currentChapter) return [];
@@ -88,7 +100,7 @@ export default function App() {
     setDetailReaction(null);
   };
 
-  // 知识点做完→下一物质/节
+  // 知识点做完→下一节（整节切换，左侧高亮跟随）
   const goToNextSubstance = () => {
     if (!currentSection || !currentSubstance) return;
     const substances = currentSection.substances;
@@ -97,8 +109,19 @@ export default function App() {
       // 同一节的下一物质
       setActiveSubstance(substances[curIdx + 1].id);
     } else {
-      // 当前节没有下一物质→返回列表
-      setActiveSubstance(null);
+      // 当前节所有物质看完→切换到下一节
+      const sections = currentChapter.sections;
+      const curSecIdx = sections.findIndex(s => s.id === currentSection.id);
+      if (curSecIdx >= 0 && curSecIdx < sections.length - 1) {
+        const nextSec = sections[curSecIdx + 1];
+        setActiveSectionId(nextSec.id);
+        if (nextSec.substances.length > 0) {
+          setActiveSubstance(nextSec.substances[0].id);
+        }
+      } else {
+        // 没有下一节→回列表
+        setActiveSubstance(null);
+      }
     }
   };
 
