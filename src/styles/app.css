@@ -70,7 +70,16 @@ body {
 .side-nav-chapters {
   flex: 1;
   overflow-y: auto;
-  padding: 6px 0;
+  padding: 4px 0;
+}
+.side-nav-group {}
+.side-nav-group-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 10px 14px 2px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .side-nav-item {
   display: flex;

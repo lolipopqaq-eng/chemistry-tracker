@@ -150,20 +150,33 @@ export default function App() {
           <span className="side-nav-subtitle">{ALL_REACTIONS.length} 反应</span>
         </div>
         <div className="side-nav-chapters">
-          {TEXTBOOK.chapters.map(ch => (
-            <div
-              key={ch.id}
-              className={`side-nav-item ${activeChapter === ch.id ? 'active' : ''}`}
-              onClick={() => { setActiveChapter(ch.id); setActiveSubstance(null); }}
-            >
-              <span className="side-nav-ch-name">
-                {ch.name.replace(/^.+?册_/, '')}
-              </span>
-              <span className="side-nav-ch-count">
-                {ch.sections.reduce((a,s) => a + s.substances.reduce((b,sub) => b + sub.reactions.length, 0), 0)}
-              </span>
-            </div>
-          ))}
+          {(() => {
+            const groups = {};
+            TEXTBOOK.chapters.forEach(ch => {
+              const vol = ch.name.split('·')[0];
+              if (!groups[vol]) groups[vol] = [];
+              groups[vol].push(ch);
+            });
+            return Object.entries(groups).map(([vol, chapters]) => (
+              <div key={vol} className="side-nav-group">
+                <div className="side-nav-group-title">{vol}</div>
+                {chapters.map(ch => (
+                  <div
+                    key={ch.id}
+                    className={`side-nav-item ${activeChapter === ch.id ? 'active' : ''}`}
+                    onClick={() => { setActiveChapter(ch.id); setActiveSubstance(null); }}
+                  >
+                    <span className="side-nav-ch-name">
+                      {ch.name.split('·')[1] || ch.name}
+                    </span>
+                    <span className="side-nav-ch-count">
+                      {ch.sections.reduce((a,s) => a + s.substances.reduce((b,sub) => b + sub.reactions.length, 0), 0)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ));
+          })()}
         </div>
       </nav>
       <Sidebar />
