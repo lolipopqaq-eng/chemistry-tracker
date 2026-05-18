@@ -1,7 +1,6 @@
 import { useState, useMemo, useRef } from 'react';
 import { useChemTracker } from './hooks/useChemTracker';
-import { REACTIONS } from './utils/reactions';
-import { NA2CO3_REACTIONS, NAHCO3_REACTIONS } from './utils/carbonate';
+import { TEXTBOOK } from './utils/textbook';
 import { STORAGE_KEYS, saveToStorage } from './utils/storage';
 import Stats from './components/Stats';
 import ReactionCard from './components/ReactionCard';
@@ -10,40 +9,77 @@ import ReactionHistory from './components/ReactionHistory';
 import ConfirmModal from './components/ConfirmModal';
 import './styles/app.css';
 
-const GROUPS = [
-  { key: 'naoh', label: '🧪 NaOH 氢氧化钠', reactions: REACTIONS },
-  { key: 'na2co3', label: '🧂 Na₂CO₃ 碳酸钠', reactions: NA2CO3_REACTIONS },
-  { key: 'nahco3', label: '🥤 NaHCO₃ 碳酸氢钠', reactions: NAHCO3_REACTIONS },
-];
+// 展平所有反应
+function flattenReactions(textbook) {
+  const all = [];
+  textbook.chapters.forEach(ch => {
+    ch.sections.forEach(sec => {
+      sec.substances.forEach(sub => {
+        sub.reactions.forEach(r => {
+          all.push({
+            ...r,
+            substanceId: sub.id,
+            substanceName: sub.name,
+            substanceIcon: sub.icon,
+            substanceNote: sub.note,
+            sectionId: sec.id,
+            sectionName: sec.name,
+            chapterId: ch.id,
+            chapterName: ch.name,
+          });
+        });
+      });
+    });
+  });
+  return all;
+}
 
 export default function App() {
   const { records, history, stats, markResult, resetAll } = useChemTracker();
 
-  const [activeGroup, setActiveGroup] = useState('naoh');
+  const [activeChapter, setActiveChapter] = useState('ch2'); // 默认第二章
+  const [activeSection, setActiveSection] = useState(null);
+  const [activeSubstance, setActiveSubstance] = useState(null);
   const [detailReaction, setDetailReaction] = useState(null);
   const [confirmReset, setConfirmReset] = useState(false);
   const [importError, setImportError] = useState(null);
   const fileInputRef = useRef(null);
 
-  const currentGroup = GROUPS.find(g => g.key === activeGroup);
-  const currentReactions = currentGroup?.reactions || [];
+  const currentChapter = TEXTBOOK.chapters.find(ch => ch.id === activeChapter);
 
-  // 按 section 分组
-  const groupedReactions = useMemo(() => {
-    const groups = {};
-    currentReactions.forEach(r => {
-      const sec = r.section || '其他';
-      if (!groups[sec]) groups[sec] = [];
-      groups[sec].push(r);
-    });
-    return groups;
-  }, [currentReactions]);
+  // 选中的物质和它的反应
+  const currentReactions = useMemo(() => {
+    if (!currentChapter) return [];
+    if (activeSubstance) {
+      for (const sec of currentChapter.sections) {
+        for (const sub of sec.substances) {
+          if (sub.id === activeSubstance) {
+            return sub.reactions.map(r => ({
+              ...r,
+              substanceId: sub.id,
+              substanceName: sub.name,
+              substanceIcon: sub.icon,
+            }));
+          }
+        }
+      }
+    }
+    return [];
+  }, [currentChapter, activeSubstance]);
 
-  // 全部反应（用于统计）
-  const ALL_REACTIONS = useMemo(
-    () => [...REACTIONS, ...NA2CO3_REACTIONS, ...NAHCO3_REACTIONS],
-    []
-  );
+  const ALL_REACTIONS = useMemo(() => flattenReactions(TEXTBOOK), []);
+
+  // 点击某个物质
+  const handleSubstanceClick = (subId) => {
+    setActiveSubstance(subId);
+    setDetailReaction(null);
+  };
+
+  // 返回物质列表
+  const handleBackToList = () => {
+    setActiveSubstance(null);
+    setDetailReaction(null);
+  };
 
   // Export
   const handleExport = () => {
@@ -83,7 +119,7 @@ export default function App() {
     e.target.value = '';
   };
 
-  // Detail view
+  // Detail view of a reaction
   if (detailReaction) {
     return (
       <ReactionDetail
@@ -99,69 +135,133 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>🧪 高考必背反应复习</h1>
-        <div className="subtitle">NaOH · Na₂CO₃ · NaHCO₃ 全反应汇总 · 共 {ALL_REACTIONS.length} 个反应</div>
+        <h1>🧪 高考化学·必修第一册</h1>
+        <div className="subtitle">按教材框架 · 逐物质攻克高考反应 · 共 {ALL_REACTIONS.length} 个反应</div>
       </header>
 
       <Stats stats={stats} />
 
-      {/* 三大板块切换标签 */}
-      <div className="group-tabs">
-        {GROUPS.map(g => (
-          <button
-            key={g.key}
-            className={activeGroup === g.key ? 'active' : ''}
-            onClick={() => setActiveGroup(g.key)}
-          >
-            {g.label}
-            <span className="count-badge">{g.reactions.length}</span>
-          </button>
+      {/* 章切换 */}
+      <div className="chapter-tabs">
+        {TEXTBOOK.chapters.filter(ch => ch.id === 'ch2').map(ch => (
+          <button key={ch.id} className="active">{ch.name}</button>
         ))}
       </div>
 
-      <div className="toolbar">
-        <div className="toolbar-right">
-          <button className="btn-export" onClick={handleExport}>💾 导出</button>
-          <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
-            📂 导入
-          </button>
-          <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
-          <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
-        </div>
-      </div>
+      {!activeSubstance ? (
+        /* 物质列表页：显示当前章的每个节和下面的物质 */
+        <>
+          <div className="toolbar">
+            <div className="toolbar-right">
+              <button className="btn-export" onClick={handleExport}>💾 导出</button>
+              <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
+                📂 导入
+              </button>
+              <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+              <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
+            </div>
+          </div>
 
-      {importError && (
-        <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
-          ❌ {importError}
-        </div>
-      )}
+          {importError && (
+            <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
+              ❌ {importError}
+            </div>
+          )}
 
-      {/* 按小分类分组展示 */}
-      {Object.entries(groupedReactions).map(([section, reactions]) => (
-        <div key={section} className="section-block">
+          {currentChapter && currentChapter.sections.map(sec => (
+            <div key={sec.id} className="section-block">
+              <div className="section-title">{sec.name}</div>
+              <div className="substance-grid">
+                {sec.substances.map(sub => (
+                  <div key={sub.id} className="substance-card" onClick={() => handleSubstanceClick(sub.id)}>
+                    <div className="substance-icon">{sub.icon}</div>
+                    <div className="substance-name">{sub.name}</div>
+                    <div className="substance-count">{sub.reactions.length} 个反应</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
           <div className="section-title">
-            <span>{section}</span>
-            <span className="count">{reactions.length} 个反应</span>
+            <span>📜 全部复习记录</span>
+            <span className="count">共 {history.length} 条</span>
           </div>
-          <div className="reaction-list">
-            {reactions.map(r => (
-              <ReactionCard
-                key={r.id}
-                reaction={r}
-                record={records[r.id]}
-                onClick={(reaction) => setDetailReaction(reaction)}
-                onMarkResult={(id, correct) => markResult(id, correct)}
-              />
-            ))}
-          </div>
-        </div>
-      ))}
+          <ReactionHistory history={history} compact={false} />
+        </>
+      ) : (
+        /* 某个物质的反应列表页 */
+        <>
+          <button className="back-btn" onClick={handleBackToList}>← 返回</button>
 
-      <div className="section-title">
-        <span>📜 全部复习记录</span>
-        <span className="count">共 {history.length} 条</span>
-      </div>
-      <ReactionHistory history={history} compact={false} />
+          {(() => {
+            const sub = (() => {
+              for (const sec of currentChapter.sections) {
+                for (const s of sec.substances) {
+                  if (s.id === activeSubstance) return { ...s, sectionName: sec.name };
+                }
+              }
+              return null;
+            })();
+            return sub && (
+              <div className="substance-header">
+                <span className="substance-icon-large">{sub.icon}</span>
+                <div>
+                  <div className="substance-name-large">{sub.name}</div>
+                  <div className="substance-meta">{sub.sectionName}</div>
+                  {sub.note && <div className="substance-desc">{sub.note}</div>}
+                </div>
+              </div>
+            );
+          })()}
+
+          <div className="toolbar">
+            <div className="toolbar-right">
+              <button className="btn-export" onClick={handleExport}>💾 导出</button>
+              <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
+                📂 导入
+              </button>
+              <input ref={fileInputRef} type="file" accept=".json" onChange={handleImport} style={{ display: 'none' }} />
+              <button className="btn-reset" onClick={() => setConfirmReset(true)}>重置</button>
+            </div>
+          </div>
+
+          {importError && (
+            <div style={{ background: '#fff5f5', border: '1px solid var(--danger)', borderRadius: 'var(--radius)', padding: '10px 14px', fontSize: '13px', color: 'var(--danger)', marginBottom: '12px' }}>
+              ❌ {importError}
+            </div>
+          )}
+
+          {/* 按 category 分组 */}
+          {(() => {
+            const groups = {};
+            currentReactions.forEach(r => {
+              const cat = r.category || '其他';
+              if (!groups[cat]) groups[cat] = [];
+              groups[cat].push(r);
+            });
+            return Object.entries(groups).map(([cat, reactions]) => (
+              <div key={cat} className="section-block">
+                <div className="section-title">
+                  <span>{cat}</span>
+                  <span className="count">{reactions.length} 个反应</span>
+                </div>
+                <div className="reaction-list">
+                  {reactions.map(r => (
+                    <ReactionCard
+                      key={r.id}
+                      reaction={r}
+                      record={records[r.id]}
+                      onClick={(reaction) => setDetailReaction(reaction)}
+                      onMarkResult={(id, correct) => markResult(id, correct)}
+                    />
+                  ))}
+                </div>
+              </div>
+            ));
+          })()}
+        </>
+      )}
 
       {confirmReset && (
         <ConfirmModal
