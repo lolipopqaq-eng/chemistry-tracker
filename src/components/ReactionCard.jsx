@@ -2,6 +2,38 @@ import { useState } from 'react';
 import { getMasteryLevel } from '../utils/status';
 import { formatDateTime } from '../utils/storage';
 
+// 解析方程：支持带条件的格式
+// 输入: '2Na + O₂ = Na₂O₂' 或 '2Na + O₂ =(点燃) Na₂O₂'
+function renderEquation(eq) {
+  const match = eq.match(/^(.+?)=\((.+?)\)(.+)$/);
+  if (match) {
+    const [, left, condition, right] = match;
+    return (
+      <div className="eq-render">
+        <span className="eq-left">{left.trim()}</span>
+        <span className="eq-middle">
+          <span className="eq-arrow">=</span>
+          <span className="eq-condition">{condition.trim()}</span>
+        </span>
+        <span className="eq-right">{right.trim()}</span>
+      </div>
+    );
+  }
+  // 简单等号
+  const simpleMatch = eq.match(/^(.+?)=(.+)$/);
+  if (simpleMatch) {
+    const [, left, right] = simpleMatch;
+    return (
+      <div className="eq-render">
+        <span className="eq-left">{left.trim()}</span>
+        <span className="eq-arrow">=</span>
+        <span className="eq-right">{right.trim()}</span>
+      </div>
+    );
+  }
+  return <span>{eq}</span>;
+}
+
 export default function ReactionCard({ reaction, record, onClick, onMarkResult }) {
   const [showEquation, setShowEquation] = useState(false);
   const [showPhenomenon, setShowPhenomenon] = useState(false);
@@ -20,7 +52,7 @@ export default function ReactionCard({ reaction, record, onClick, onMarkResult }
         <div className="card-toggle" onClick={(e) => { e.stopPropagation(); setShowEquation(!showEquation); }}>
           {showEquation ? (
             <>
-              <div className="card-equation">{reaction.equation}</div>
+              <div className="card-equation">{renderEquation(reaction.equation)}</div>
               <div className="card-toggle-hint">▲ 点击收起</div>
             </>
           ) : (
