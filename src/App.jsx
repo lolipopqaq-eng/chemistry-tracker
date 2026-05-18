@@ -10,26 +10,40 @@ import ReactionHistory from './components/ReactionHistory';
 import ConfirmModal from './components/ConfirmModal';
 import './styles/app.css';
 
+const GROUPS = [
+  { key: 'naoh', label: '🧪 NaOH 氢氧化钠', reactions: REACTIONS },
+  { key: 'na2co3', label: '🧂 Na₂CO₃ 碳酸钠', reactions: NA2CO3_REACTIONS },
+  { key: 'nahco3', label: '🥤 NaHCO₃ 碳酸氢钠', reactions: NAHCO3_REACTIONS },
+];
+
 export default function App() {
   const { records, history, stats, markResult, resetAll } = useChemTracker();
 
-  const [categoryFilter, setCategoryFilter] = useState('全部');
+  const [activeGroup, setActiveGroup] = useState('naoh');
   const [detailReaction, setDetailReaction] = useState(null);
   const [confirmReset, setConfirmReset] = useState(false);
   const [importError, setImportError] = useState(null);
   const fileInputRef = useRef(null);
 
-  const ALL_REACTIONS = useMemo(() => [...REACTIONS, ...NA2CO3_REACTIONS, ...NAHCO3_REACTIONS], []);
-  const ALL_CATEGORIES = useMemo(() => {
-    const cats = new Map();
-    ALL_REACTIONS.forEach(r => cats.set(r.category, true));
-    return ['全部', ...cats.keys()];
-  }, [ALL_REACTIONS]);
+  const currentGroup = GROUPS.find(g => g.key === activeGroup);
+  const currentReactions = currentGroup?.reactions || [];
 
-  const filteredReactions = useMemo(() => {
-    if (categoryFilter === '全部') return ALL_REACTIONS;
-    return ALL_REACTIONS.filter(r => r.category === categoryFilter);
-  }, [categoryFilter, ALL_REACTIONS]);
+  // 按 section 分组
+  const groupedReactions = useMemo(() => {
+    const groups = {};
+    currentReactions.forEach(r => {
+      const sec = r.section || '其他';
+      if (!groups[sec]) groups[sec] = [];
+      groups[sec].push(r);
+    });
+    return groups;
+  }, [currentReactions]);
+
+  // 全部反应（用于统计）
+  const ALL_REACTIONS = useMemo(
+    () => [...REACTIONS, ...NA2CO3_REACTIONS, ...NAHCO3_REACTIONS],
+    []
+  );
 
   // Export
   const handleExport = () => {
@@ -43,8 +57,7 @@ export default function App() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    const dateStr = new Date().toISOString().slice(0, 10);
-    a.download = `化学复习_NaOH反应_${dateStr}.json`;
+    a.download = `化学复习_${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -78,10 +91,7 @@ export default function App() {
         record={records[detailReaction.id]}
         history={history}
         onBack={() => setDetailReaction(null)}
-        onMarkResult={(id, correct) => {
-          markResult(id, correct);
-          // refresh record
-        }}
+        onMarkResult={(id, correct) => markResult(id, correct)}
       />
     );
   }
@@ -95,18 +105,21 @@ export default function App() {
 
       <Stats stats={stats} />
 
+      {/* 三大板块切换标签 */}
+      <div className="group-tabs">
+        {GROUPS.map(g => (
+          <button
+            key={g.key}
+            className={activeGroup === g.key ? 'active' : ''}
+            onClick={() => setActiveGroup(g.key)}
+          >
+            {g.label}
+            <span className="count-badge">{g.reactions.length}</span>
+          </button>
+        ))}
+      </div>
+
       <div className="toolbar">
-        <div className="category-tabs">
-          {ALL_CATEGORIES.map(c => (
-            <button
-              key={c}
-              className={categoryFilter === c ? 'active' : ''}
-              onClick={() => setCategoryFilter(c)}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
         <div className="toolbar-right">
           <button className="btn-export" onClick={handleExport}>💾 导出</button>
           <button className="btn-export" style={{ background: '#8e8e93' }} onClick={() => fileInputRef.current?.click()}>
@@ -123,17 +136,26 @@ export default function App() {
         </div>
       )}
 
-      <div className="reaction-list">
-        {filteredReactions.map(r => (
-          <ReactionCard
-            key={r.id}
-            reaction={r}
-            record={records[r.id]}
-            onClick={(reaction) => setDetailReaction(reaction)}
-            onMarkResult={(id, correct) => markResult(id, correct)}
-          />
-        ))}
-      </div>
+      {/* 按小分类分组展示 */}
+      {Object.entries(groupedReactions).map(([section, reactions]) => (
+        <div key={section} className="section-block">
+          <div className="section-title">
+            <span>{section}</span>
+            <span className="count">{reactions.length} 个反应</span>
+          </div>
+          <div className="reaction-list">
+            {reactions.map(r => (
+              <ReactionCard
+                key={r.id}
+                reaction={r}
+                record={records[r.id]}
+                onClick={(reaction) => setDetailReaction(reaction)}
+                onMarkResult={(id, correct) => markResult(id, correct)}
+              />
+            ))}
+          </div>
+        </div>
+      ))}
 
       <div className="section-title">
         <span>📜 全部复习记录</span>
