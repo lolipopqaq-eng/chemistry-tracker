@@ -19,10 +19,9 @@ export default function TeacherCard() {
   return (
     <>
       <div className="teacher-card-top">
-        <div className="teacher-actions">
-          <div className="action-btn donate-btn" onClick={() => setShowDonate(true)} title="打赏支持">
-            <div className="action-icon">🥇</div>
-            <div className="action-text">打赏</div>
+        <div className="teacher-sidebar">
+          <div className="donate-link" onClick={() => setShowDonate(true)}>
+            🥇 如果对你有帮助，欢迎打赏支持
           </div>
           <WoodenFish />
         </div>
@@ -54,7 +53,7 @@ export default function TeacherCard() {
       {showDonate && (
         <div className="photo-overlay" onClick={() => setShowDonate(false)}>
           <div className="donate-box" onClick={(e) => e.stopPropagation()}>
-            <div className="donate-title">☕ 如果对你有帮助，欢迎打赏支持</div>
+            <div className="donate-title">🥇 如果对你有帮助，欢迎打赏支持</div>
             <div className="donate-codes">
               <div className="donate-item">
                 <img src={wechatPay} alt="微信收款码" />
