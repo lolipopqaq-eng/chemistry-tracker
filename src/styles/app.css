@@ -526,6 +526,82 @@ body {
   margin-top: 16px;
 }
 
+/* 树状图 */
+.tree-view {
+  margin-bottom: 16px;
+}
+.tree-chapter {
+  margin-bottom: 12px;
+}
+.tree-chapter-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  padding: 8px 0 4px 0;
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tree-chapter-title::before {
+  content: '📖';
+}
+.tree-section {
+  padding-left: 16px;
+  border-left: 2px solid #e0e0e0;
+  margin-left: 6px;
+  margin-bottom: 6px;
+}
+.tree-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 4px 0 4px 8px;
+  position: relative;
+}
+.tree-section-title::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  width: 8px;
+  height: 2px;
+  background: #e0e0e0;
+}
+.tree-substance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  margin: 2px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 13px;
+}
+.tree-substance:hover {
+  background: #e8f0fe;
+}
+.tree-substance:active {
+  background: #d0e0ff;
+}
+.tree-substance .tree-icon {
+  font-size: 16px;
+  width: 24px;
+  text-align: center;
+}
+.tree-substance .tree-name {
+  color: var(--text);
+  font-weight: 500;
+  flex: 1;
+}
+.tree-substance .tree-badge {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
 /* 知识点填空卡片 */
 .knowledge-block {
   background: #f8f9ff;
