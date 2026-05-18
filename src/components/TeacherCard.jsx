@@ -2,6 +2,7 @@ import { useState } from 'react';
 import teacherPhoto from '../assets/teacher.jpg';
 import wechatPay from '../assets/wechat-pay.jpg';
 import alipay from '../assets/alipay.jpg';
+import WoodenFish from './WoodenFish';
 
 export default function TeacherCard() {
   const [showBig, setShowBig] = useState(false);
@@ -36,6 +37,7 @@ export default function TeacherCard() {
           <div className="donate-link" onClick={() => setShowDonate(true)}>
             ☕ 如果对你有帮助，欢迎打赏支持
           </div>
+          <WoodenFish />
         </div>
       </div>
 

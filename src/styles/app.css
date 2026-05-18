@@ -625,6 +625,64 @@ body {
   color: var(--text);
 }
 
+/* 电子木鱼 */
+.wooden-fish-area {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+  position: relative;
+}
+.wooden-fish-area .wooden-fish-box {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #faf6ed;
+  border: 1px solid #e8dcc8;
+  font-size: 11px;
+  color: #8b7355;
+  transition: all 0.1s;
+  user-select: none;
+}
+.wooden-fish-area .wooden-fish-box:active {
+  transform: scale(0.92);
+  background: #f0e8d8;
+}
+.wooden-fish-area .wooden-fish-emoji {
+  font-size: 14px;
+  line-height: 1;
+}
+.wooden-fish-area .wooden-fish-text {
+  font-weight: 500;
+}
+.wooden-fish-area .wooden-fish-count {
+  color: #b8a078;
+}
+.wooden-fish-area .wooden-fish-combo {
+  color: #e67e22;
+  font-weight: 700;
+  font-size: 10px;
+}
+.wooden-fish-area .wooden-fish-float {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -24px;
+  font-size: 12px;
+  color: #e67e22;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: fishFloatUp 1.2s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes fishFloatUp {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .app { padding: 12px 10px 32px; }
