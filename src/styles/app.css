@@ -526,6 +526,50 @@ body {
   margin-top: 16px;
 }
 
+/* 知识点填空卡片 */
+.knowledge-block {
+  background: #f8f9ff;
+  border: 1px solid #dce3f0;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.knowledge-block .knowledge-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.knowledge-block .knowledge-item {
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.knowledge-block .knowledge-item:hover {
+  background: #f0f2ff;
+}
+.knowledge-block .knowledge-q {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.4;
+}
+.knowledge-block .knowledge-a {
+  font-size: 12px;
+  margin-top: 4px;
+  padding: 4px 8px;
+  background: #e8f5e9;
+  border-radius: 6px;
+  color: #2e7d32;
+  font-weight: 500;
+}
+.knowledge-block .knowledge-a.hidden {
+  background: #fff;
+  color: #aaa;
+  font-weight: 400;
+  border: 1px dashed #ccc;
+}
+
 /* 左侧固定悬浮栏 */
 .sidebar-fixed {
   position: fixed;

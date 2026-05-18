@@ -6,6 +6,7 @@ import TEXTBOOK, { flattenReactions } from './utils/textbook';
 import { STORAGE_KEYS, saveToStorage } from './utils/storage';
 import Stats from './components/Stats';
 import ReactionCard from './components/ReactionCard';
+import KnowledgeCard from './components/KnowledgeCard';
 import ReactionDetail from './components/ReactionDetail';
 import ReactionHistory from './components/ReactionHistory';
 import ConfirmModal from './components/ConfirmModal';
@@ -198,6 +199,20 @@ export default function App() {
                 </div>
               </div>
             );
+          })()}
+
+          {(() => {
+            const sub = (() => {
+              for (const sec of currentChapter.sections) {
+                for (const s of sec.substances) {
+                  if (s.id === activeSubstance) return s;
+                }
+              }
+              return null;
+            })();
+            return sub && sub.knowledge && sub.knowledge.length > 0 ? (
+              <KnowledgeCard knowledge={sub.knowledge} />
+            ) : null;
           })()}
 
           <div className="toolbar">
