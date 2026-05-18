@@ -61,6 +61,7 @@ function renderEquation(eq) {
 export default function ReactionCard({ reaction, record, onClick, onMarkResult }) {
   const [showEquation, setShowEquation] = useState(false);
   const [showPhenomenon, setShowPhenomenon] = useState(false);
+  const [showNote, setShowNote] = useState(false);
   const rec = record || { reviewCount: 0, lastCorrect: 0, lastReviewAt: null };
   const mastery = getMasteryLevel(rec.reviewCount, rec.lastCorrect);
 
@@ -100,7 +101,18 @@ export default function ReactionCard({ reaction, record, onClick, onMarkResult }
           <span className="tag">{reaction.category}</span>
         </div>
 
-        {reaction.note && <div className="card-note">💡 {reaction.note}</div>}
+        {reaction.note && (
+          <div className="card-toggle" onClick={(e) => { e.stopPropagation(); setShowNote(!showNote); }}>
+            {showNote ? (
+              <>
+                <div className="card-note">💡 {reaction.note}</div>
+                <div className="card-toggle-hint">▲ 收起提示</div>
+              </>
+            ) : (
+              <div className="card-toggle-hint">💡 点击查看考点提示</div>
+            )}
+          </div>
+        )}
 
         <div className="card-meta">
           <span>📖 复习 {rec.reviewCount} 次</span>
