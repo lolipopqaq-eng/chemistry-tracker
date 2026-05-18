@@ -3,37 +3,66 @@ import { getMasteryLevel } from '../utils/status';
 import { formatDateTime } from '../utils/storage';
 
 // 解析方程
+// 格式: '左边 =(条件) 右边'（无机）或 '左边 →(条件) 右边'（有机）
+// 或 '左边 = 右边' '左边 → 右边' '左边 ⇌ 右边'
 function renderEquation(eq) {
-  // 带条件: '2Na + O₂ →(点燃) Na₂O₂'
-  const match = eq.match(/^(.+?)→\((.+?)\)(.+)$/);
-  if (match) {
-    const [, left, condition, right] = match;
+  // 先处理不反应
+  if (eq.includes('不反应') || eq.includes('加热不分解')) {
+    return <span>{eq}</span>;
+  }
+
+  // 带条件: =(条件) 或 →(条件)
+  const condMatch = eq.match(/^(.+?)([=→])\((.+?)\)(.+)$/);
+  if (condMatch) {
+    const [, left, arrow, condition, right] = condMatch;
     return (
       <div className="eq-box">
         <span className="eq-left">{left.trim()}</span>
         <span className="eq-arrow-block">
           <span className="eq-cond">{condition.trim()}</span>
-          <span className="eq-arrow">→</span>
+          <span className="eq-arrow">{arrow}</span>
         </span>
         <span className="eq-right">{right.trim()}</span>
       </div>
     );
   }
-  // 简单箭头
-  const simpleMatch = eq.match(/^(.+?)→(.+)$/);
-  if (simpleMatch) {
-    const [, left, right] = simpleMatch;
-    if (left.includes('不反应') || left.includes('加热不分解')) {
-      return <span>{eq}</span>;
-    }
+
+  // 可逆: ⇌
+  const revMatch = eq.match(/^(.+?)⇌(.+)$/);
+  if (revMatch) {
     return (
       <div className="eq-box">
-        <span className="eq-left">{left.trim()}</span>
-        <span className="eq-arrow">→</span>
-        <span className="eq-right">{right.trim()}</span>
+        <span className="eq-left">{revMatch[1].trim()}</span>
+        <span className="eq-arrow">⇌</span>
+        <span className="eq-right">{revMatch[2].trim()}</span>
       </div>
     );
   }
+
+  // 简单等号
+  const eqMatch = eq.match(/^(.+?)=(.*)$/);
+  if (eqMatch && !eqMatch[1].includes('→')) {
+    return (
+      <div className="eq-box">
+        <span className="eq-left">{eqMatch[1].trim()}</span>
+        <span className="eq-arrow">=</span>
+        <span className="eq-right">{eqMatch[2].trim()}</span>
+      </div>
+    );
+  }
+
+  // 简单箭头
+  const arrMatch = eq.match(/^(.+?)→(.+)$/);
+  if (arrMatch) {
+    return (
+      <div className="eq-box">
+        <span className="eq-left">{arrMatch[1].trim()}</span>
+        <span className="eq-arrow">→</span>
+        <span className="eq-right">{arrMatch[2].trim()}</span>
+      </div>
+    );
+  }
+
   return <span>{eq}</span>;
 }
 
