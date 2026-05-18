@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef } from 'react';
 import TeacherCard from './components/TeacherCard';
+import Sidebar from './components/Sidebar';
 import { useChemTracker } from './hooks/useChemTracker';
 import TEXTBOOK, { flattenReactions } from './utils/textbook';
 import { STORAGE_KEYS, saveToStorage } from './utils/storage';
@@ -116,6 +117,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <Sidebar />
       <header className="header">
         <TeacherCard />
         <h1>🧪 高考化学·必修第一册</h1>

@@ -24,7 +24,18 @@ body {
   min-height: 100vh;
 }
 
-.app { max-width: 800px; margin: 0 auto; padding: 20px 16px 40px; }
+.app {
+  display: flex;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  gap: 0;
+}
+.app-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 800px;
+}
 
 /* Header */
 .header { text-align: center; margin-bottom: 20px; }
@@ -513,36 +524,96 @@ body {
   margin-top: 16px;
 }
 
-/* 老师头像左侧侧边栏 */
-.teacher-sidebar {
+/* 左侧固定悬浮栏 */
+.sidebar-fixed {
+  position: fixed;
+  left: calc(50% - 460px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 75px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  flex-shrink: 0;
-  width: 85px;
+  gap: 8px;
+  z-index: 100;
   align-items: center;
 }
-.teacher-sidebar .donate-link {
+.sidebar-fixed .sidebar-donate {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3px;
   font-size: 11px;
   font-weight: 600;
   color: #b8860b;
   cursor: pointer;
-  padding: 6px 8px;
-  border-radius: 10px;
+  padding: 10px 6px;
+  border-radius: 12px;
   background: #fff9e6;
   border: 1px solid #f0dda0;
   transition: all 0.15s;
   line-height: 1.3;
   user-select: none;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  writing-mode: vertical-lr;
+  letter-spacing: 3px;
+}
+.sidebar-fixed .sidebar-donate:active {
+  transform: scale(0.95);
+  background: #fcf0cc;
+}
+.sidebar-fixed .sidebar-fish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  padding: 10px 6px;
+  border-radius: 12px;
+  background: #faf6ed;
+  border: 1px solid #e8dcc8;
+  color: #8b7355;
+  transition: all 0.15s;
+  user-select: none;
   width: 100%;
   box-sizing: border-box;
 }
-.teacher-sidebar .donate-link:active {
+.sidebar-fixed .sidebar-fish:active {
   transform: scale(0.95);
-  background: #fcf0cc;
+  background: #f0e8d8;
+}
+.sidebar-fixed .sidebar-fish-emoji { font-size: 22px; line-height: 1; }
+.sidebar-fixed .sidebar-fish-text {
+  font-size: 9px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+.sidebar-fixed .sidebar-fish-count {
+  font-size: 11px;
+  color: #b8a078;
+  font-weight: 700;
+}
+.sidebar-fixed .sidebar-fish-combo {
+  font-size: 9px;
+  color: #e67e22;
+  font-weight: 700;
+}
+.sidebar-fixed .sidebar-float {
+  position: absolute;
+  left: calc(100% + 8px);
+  top: 50%;
+  font-size: 12px;
+  color: #e67e22;
+  font-weight: 600;
+  white-space: nowrap;
+  animation: sideFloat 1.5s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes sideFloat {
+  0% { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(15px); }
 }
 
 /* 老师卡片 - 左上方 */
