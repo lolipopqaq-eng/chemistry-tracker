@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import teacherPhoto from '../assets/teacher-photo.png';
+import teacherPhoto from '../assets/teacher.jpg';
 
 export default function TeacherCard() {
   const [showBig, setShowBig] = useState(false);
