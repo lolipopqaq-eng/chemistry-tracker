@@ -111,6 +111,13 @@
                 "category": "制备",
                 "phenomenon": "溶液变为红褐色",
                 "note": "💯 注意写胶体二字非沉淀↓"
+              },
+              {
+                "id": "ch1_cl1",
+                "name": "Fe(OH)₃胶体制备",
+                "equation": "FeCl₃ + 3H₂O =(△) Fe(OH)₃(胶体) + 3HCl",
+                "category": "制备",
+                "note": "💯 向沸水中滴加FeCl₃饱和溶液"
               }
             ],
             "knowledge": [
@@ -576,6 +583,215 @@
                 "category": "有机",
                 "phenomenon": "苯酚由浑浊变澄清",
                 "note": "酚羟基显弱酸性"
+              },
+              {
+                "id": "ch2_n20",
+                "name": "NaOH+H₂SO₄",
+                "equation": "2NaOH + H₂SO₄ = Na₂SO₄ + 2H₂O",
+                "category": "中和",
+                "note": ""
+              },
+              {
+                "id": "ch2_n21",
+                "name": "NaOH+HNO₃",
+                "equation": "NaOH + HNO₃ = NaNO₃ + H₂O",
+                "category": "中和",
+                "note": ""
+              },
+              {
+                "id": "ch2_n22",
+                "name": "NaOH+H₃PO₄",
+                "equation": "3NaOH + H₃PO₄ = Na₃PO₄ + 3H₂O",
+                "category": "中和",
+                "note": ""
+              },
+              {
+                "id": "ch2_n23",
+                "name": "NaOH+CO₂(少量)",
+                "equation": "2NaOH + CO₂ = Na₂CO₃ + H₂O",
+                "category": "与酸性氧化物",
+                "note": "💯 少量→碳酸盐"
+              },
+              {
+                "id": "ch2_n24",
+                "name": "NaOH+CO₂(过量)",
+                "equation": "NaOH + CO₂ = NaHCO₃",
+                "category": "与酸性氧化物",
+                "note": "💯 过量→碳酸氢盐"
+              },
+              {
+                "id": "ch2_n25",
+                "name": "NaOH+SO₂(少量)",
+                "equation": "2NaOH + SO₂ = Na₂SO₃ + H₂O",
+                "category": "与酸性氧化物",
+                "note": ""
+              },
+              {
+                "id": "ch2_n26",
+                "name": "NaOH+SO₃",
+                "equation": "2NaOH + SO₃ = Na₂SO₄ + H₂O",
+                "category": "与酸性氧化物",
+                "note": ""
+              },
+              {
+                "id": "ch2_n27",
+                "name": "NaOH+SiO₂",
+                "equation": "2NaOH + SiO₂ = Na₂SiO₃ + H₂O",
+                "category": "与酸性氧化物",
+                "note": "💯 玻璃被碱腐蚀"
+              },
+              {
+                "id": "ch2_n28",
+                "name": "NaOH+CuSO₄",
+                "equation": "2NaOH + CuSO₄ = Cu(OH)₂↓ + Na₂SO₄",
+                "category": "复分解",
+                "phenomenon": "蓝色沉淀",
+                "note": "💯 新制Cu(OH)₂用于检验醛基"
+              },
+              {
+                "id": "ch2_n29",
+                "name": "NaOH+FeCl₃",
+                "equation": "3NaOH + FeCl₃ = Fe(OH)₃↓ + 3NaCl",
+                "category": "复分解",
+                "phenomenon": "红褐色沉淀",
+                "note": "💯 Fe³⁺检验"
+              },
+              {
+                "id": "ch2_n30",
+                "name": "NaOH+FeCl₂",
+                "equation": "2NaOH + FeCl₂ = Fe(OH)₂↓ + 2NaCl",
+                "category": "复分解",
+                "phenomenon": "白色沉淀→灰绿→红褐",
+                "note": "💯 空气中被氧化"
+              },
+              {
+                "id": "ch2_n31",
+                "name": "NaOH+MgCl₂",
+                "equation": "2NaOH + MgCl₂ = Mg(OH)₂↓ + 2NaCl",
+                "category": "复分解",
+                "phenomenon": "白色沉淀",
+                "note": ""
+              },
+              {
+                "id": "ch2_n32",
+                "name": "NaOH+AlCl₃(适量)",
+                "equation": "3NaOH + AlCl₃ = Al(OH)₃↓ + 3NaCl",
+                "category": "复分解",
+                "phenomenon": "白色沉淀",
+                "note": "💯 Al³⁺+3OH⁻"
+              },
+              {
+                "id": "ch2_n33",
+                "name": "NaOH+AlCl₃(过量)",
+                "equation": "NaOH + Al(OH)₃ = NaAlO₂ + 2H₂O",
+                "category": "与两性氢氧化物",
+                "note": "💯 Al(OH)₃溶于强碱"
+              },
+              {
+                "id": "ch2_n34",
+                "name": "NaOH+Al₂O₃",
+                "equation": "2NaOH + Al₂O₃ = 2NaAlO₂ + H₂O",
+                "category": "与两性氧化物",
+                "note": ""
+              },
+              {
+                "id": "ch2_n35",
+                "name": "NaOH+Al(OH)₃",
+                "equation": "NaOH + Al(OH)₃ = NaAlO₂ + 2H₂O",
+                "category": "与两性氢氧化物",
+                "note": ""
+              },
+              {
+                "id": "ch2_n36",
+                "name": "NaOH+苯酚",
+                "equation": "NaOH + C₆H₅OH = C₆H₅ONa + H₂O",
+                "category": "与有机物",
+                "note": "💯 苯酚弱酸性"
+              },
+              {
+                "id": "ch2_n37",
+                "name": "NaOH+乙酸",
+                "equation": "NaOH + CH₃COOH = CH₃COONa + H₂O",
+                "category": "与有机物",
+                "note": "中和反应"
+              },
+              {
+                "id": "ch2_n38",
+                "name": "NaOH+乙酸乙酯(皂化)",
+                "equation": "CH₃COOC₂H₅ + NaOH →(△) CH₃COONa + C₂H₅OH",
+                "category": "皂化",
+                "note": "💯 不可逆"
+              },
+              {
+                "id": "ch2_n39",
+                "name": "NaOH+氯乙烷(取代)",
+                "equation": "CH₃CH₂Cl + NaOH →(H₂O/△) CH₃CH₂OH + NaCl",
+                "category": "水解",
+                "note": "💯 卤代烃的水解"
+              },
+              {
+                "id": "ch2_n40",
+                "name": "NaOH+氯乙烷(消去)",
+                "equation": "CH₃CH₂Cl + NaOH →(C₂H₅OH/△) CH₂=CH₂↑ + NaCl + H₂O",
+                "category": "消去",
+                "note": "💯 卤代烃消去→烯"
+              },
+              {
+                "id": "ch2_n41",
+                "name": "NaOH+油脂",
+                "equation": "油脂 + 3NaOH →(△) 3脂肪酸钠 + 甘油",
+                "category": "皂化",
+                "note": "💯 制肥皂"
+              },
+              {
+                "id": "ch2_n42",
+                "name": "NaOH+蛋白质",
+                "equation": "蛋白质 + NaOH →(△) 水解产物",
+                "category": "水解",
+                "note": "蛋白质碱性水解"
+              },
+              {
+                "id": "ch2_n43",
+                "name": "NaOH+Cl₂(冷)",
+                "equation": "2NaOH + Cl₂ = NaCl + NaClO + H₂O",
+                "category": "歧化",
+                "note": "💯 制漂白液"
+              },
+              {
+                "id": "ch2_n44",
+                "name": "NaOH+Cl₂(热)",
+                "equation": "6NaOH + 3Cl₂ =(△) 5NaCl + NaClO₃ + 3H₂O",
+                "category": "歧化",
+                "note": ""
+              },
+              {
+                "id": "ch2_n45",
+                "name": "NaOH+S(热)",
+                "equation": "6NaOH + 3S =(△) 2Na₂S + Na₂SO₃ + 3H₂O",
+                "category": "歧化",
+                "note": ""
+              },
+              {
+                "id": "ch2_n46",
+                "name": "NaOH+Si",
+                "equation": "2NaOH + Si + H₂O = Na₂SiO₃ + 2H₂↑",
+                "category": "与非金属",
+                "note": "💯 Si+强碱→H₂"
+              },
+              {
+                "id": "ch2_n47",
+                "name": "NaOH+NaHCO₃",
+                "equation": "NaOH + NaHCO₃ = Na₂CO₃ + H₂O",
+                "category": "与酸式盐",
+                "note": ""
+              },
+              {
+                "id": "ch2_n48",
+                "name": "NaOH+NH₄Cl",
+                "equation": "NaOH + NH₄Cl = NaCl + NH₃↑ + H₂O",
+                "category": "与铵盐",
+                "phenomenon": "刺激性气体",
+                "note": "💯 实验室制NH₃"
               }
             ]
           },
@@ -661,6 +877,56 @@
                 "equation": "Na₂CO₃ 加热不分解",
                 "category": "热稳定性",
                 "note": "💯 对比：NaHCO₃加热分解"
+              },
+              {
+                "id": "ch2_c11",
+                "name": "Na₂CO₃+HCl(少量)",
+                "equation": "Na₂CO₃ + HCl = NaCl + NaHCO₃",
+                "category": "与酸",
+                "note": "💯 少量HCl→HCO₃⁻"
+              },
+              {
+                "id": "ch2_c12",
+                "name": "Na₂CO₃+HCl(过量)",
+                "equation": "Na₂CO₃ + 2HCl = 2NaCl + H₂O + CO₂↑",
+                "category": "与酸",
+                "note": "💯 过量→CO₂"
+              },
+              {
+                "id": "ch2_c13",
+                "name": "Na₂CO₃+Ca(OH)₂",
+                "equation": "Na₂CO₃ + Ca(OH)₂ = CaCO₃↓ + 2NaOH",
+                "category": "复分解",
+                "note": "💯 工业制碱"
+              },
+              {
+                "id": "ch2_c14",
+                "name": "Na₂CO₃+BaCl₂",
+                "equation": "Na₂CO₃ + BaCl₂ = BaCO₃↓ + 2NaCl",
+                "category": "复分解",
+                "phenomenon": "白色沉淀",
+                "note": ""
+              },
+              {
+                "id": "ch2_c15",
+                "name": "Na₂CO₃+CaCl₂",
+                "equation": "Na₂CO₃ + CaCl₂ = CaCO₃↓ + 2NaCl",
+                "category": "复分解",
+                "note": ""
+              },
+              {
+                "id": "ch2_c16",
+                "name": "Na₂CO₃水解(第一步)",
+                "equation": "CO₃²⁻ + H₂O ⇌ HCO₃⁻ + OH⁻",
+                "category": "水解",
+                "note": "💯 使酚酞变红"
+              },
+              {
+                "id": "ch2_c17",
+                "name": "Na₂CO₃+AlCl₃(双水解)",
+                "equation": "3Na₂CO₃ + 2AlCl₃ + 3H₂O = 2Al(OH)₃↓ + 3CO₂↑ + 6NaCl",
+                "category": "双水解",
+                "note": ""
               }
             ]
           },
@@ -744,6 +1010,41 @@
                 "equation": "NaHCO₃ + NaOH = Na₂CO₃ + H₂O",
                 "category": "转化",
                 "note": "加碱"
+              },
+              {
+                "id": "ch2_hc1",
+                "name": "NaHCO₃+HCl",
+                "equation": "NaHCO₃ + HCl = NaCl + H₂O + CO₂↑",
+                "category": "与酸",
+                "note": "💯 治疗胃酸过多"
+              },
+              {
+                "id": "ch2_hc2",
+                "name": "NaHCO₃+NaOH",
+                "equation": "NaHCO₃ + NaOH = Na₂CO₃ + H₂O",
+                "category": "与碱",
+                "note": ""
+              },
+              {
+                "id": "ch2_hc3",
+                "name": "NaHCO₃+Ca(OH)₂(少量)",
+                "equation": "NaHCO₃ + Ca(OH)₂ = CaCO₃↓ + NaOH + H₂O",
+                "category": "复分解",
+                "note": "💯 少量HCO₃⁻"
+              },
+              {
+                "id": "ch2_hc4",
+                "name": "NaHCO₃+Ca(OH)₂(过量)",
+                "equation": "2NaHCO₃ + Ca(OH)₂ = CaCO₃↓ + Na₂CO₃ + 2H₂O",
+                "category": "复分解",
+                "note": "💯 过量HCO₃⁻"
+              },
+              {
+                "id": "ch2_hc5",
+                "name": "NaHCO₃分解",
+                "equation": "2NaHCO₃ =(△) Na₂CO₃ + H₂O + CO₂↑",
+                "category": "分解",
+                "note": "💯 稳定性Na₂CO₃>NaHCO₃"
               }
             ]
           },
@@ -844,6 +1145,29 @@
                 "category": "置换",
                 "phenomenon": "溶液变棕黄，淀粉变蓝",
                 "note": "💯 氧化性：Cl₂ > I₂"
+              },
+              {
+                "id": "ch2_cl7",
+                "name": "Cl₂+NaBr",
+                "equation": "Cl₂ + 2NaBr = 2NaCl + Br₂",
+                "category": "置换",
+                "phenomenon": "溶液变橙",
+                "note": "💯 Cl₂>Br₂氧化性"
+              },
+              {
+                "id": "ch2_cl8",
+                "name": "Cl₂+KI",
+                "equation": "Cl₂ + 2KI = 2KCl + I₂",
+                "category": "置换",
+                "phenomenon": "溶液变棕/淀粉变蓝",
+                "note": "💯 Cl₂>I₂"
+              },
+              {
+                "id": "ch2_cl9",
+                "name": "Cl₂+SO₂+H₂O",
+                "equation": "Cl₂ + SO₂ + 2H₂O = H₂SO₄ + 2HCl",
+                "category": "氧化还原",
+                "note": "💯 SO₂漂白可逆,Cl₂不可逆"
               }
             ]
           },
@@ -1037,6 +1361,20 @@
                 "equation": "FeO + H₂SO₄ = FeSO₄ + H₂O",
                 "category": "与酸",
                 "note": "碱性氧化物通性"
+              },
+              {
+                "id": "ch3_fo3",
+                "name": "FeO+HCl",
+                "equation": "FeO + 2HCl = FeCl₂ + H₂O",
+                "category": "与酸",
+                "note": "💯 生成Fe²⁺"
+              },
+              {
+                "id": "ch3_fo4",
+                "name": "FeO+HNO₃",
+                "equation": "3FeO + 10HNO₃(稀) = 3Fe(NO₃)₃ + NO↑ + 5H₂O",
+                "category": "氧化还原",
+                "note": "💯 稀HNO₃氧化FeO→Fe³⁺"
               }
             ]
           },
@@ -1076,6 +1414,13 @@
                 "category": "铝热反应",
                 "phenomenon": "剧烈反应，放出大量热，铁水流出",
                 "note": "💯 焊接铁轨"
+              },
+              {
+                "id": "ch3_f2o4",
+                "name": "Fe₂O₃+HI",
+                "equation": "Fe₂O₃ + 6HI = 2FeI₂ + I₂ + 3H₂O",
+                "category": "氧化还原",
+                "note": "💯 HI还原Fe³⁺→Fe²⁺"
               }
             ]
           },
@@ -1091,6 +1436,13 @@
                 "equation": "Fe₃O₄ + 8HCl = FeCl₂ + 2FeCl₃ + 4H₂O",
                 "category": "与酸",
                 "note": "生成Fe²⁺ + 2Fe³⁺"
+              },
+              {
+                "id": "ch3_f34",
+                "name": "Fe₃O₄+酸",
+                "equation": "Fe₃O₄ + 8H⁺ = Fe²⁺ + 2Fe³⁺ + 4H₂O",
+                "category": "与酸",
+                "note": "💯 Fe₃O₄既是FeO·Fe₂O₃"
               }
             ]
           },
@@ -1171,6 +1523,14 @@
                 "category": "氧化还原",
                 "phenomenon": "溶液变棕黄色，淀粉变蓝",
                 "note": "💯 Fe³⁺氧化性 > I₂"
+              },
+              {
+                "id": "ch3_fcl3",
+                "name": "Fe³⁺+KSCN",
+                "equation": "Fe³⁺ + 3SCN⁻ = Fe(SCN)₃",
+                "category": "检验",
+                "phenomenon": "血红色",
+                "note": "💯 Fe³⁺的特征检验"
               }
             ]
           },
@@ -1263,6 +1623,49 @@
                 "category": "铝热反应",
                 "phenomenon": "剧烈反应，放出大量热，铁水流出",
                 "note": "💯 冶炼金属/焊接铁轨"
+              },
+              {
+                "id": "ch3_al8",
+                "name": "铝热反应",
+                "equation": "2Al + Fe₂O₃ =(高温) Al₂O₃ + 2Fe",
+                "category": "铝热",
+                "phenomenon": "剧烈放热、铁水流出",
+                "note": "💯 焊接铁轨"
+              },
+              {
+                "id": "ch3_al9",
+                "name": "Al+HCl",
+                "equation": "2Al + 6HCl = 2AlCl₃ + 3H₂↑",
+                "category": "与酸",
+                "note": ""
+              },
+              {
+                "id": "ch3_al10",
+                "name": "Al+O₂",
+                "equation": "4Al + 3O₂ = 2Al₂O₃",
+                "category": "与非金属",
+                "note": "💯 常温钝化，氧化膜致密"
+              },
+              {
+                "id": "ch3_al11",
+                "name": "Al+H₂SO₄(稀)",
+                "equation": "2Al + 3H₂SO₄ = Al₂(SO₄)₃ + 3H₂↑",
+                "category": "与酸",
+                "note": ""
+              },
+              {
+                "id": "ch3_al12",
+                "name": "Al+S",
+                "equation": "2Al + 3S =(△) Al₂S₃",
+                "category": "与非金属",
+                "note": ""
+              },
+              {
+                "id": "ch3_al13",
+                "name": "Al+N₂",
+                "equation": "2Al + N₂ =(高温) 2AlN",
+                "category": "与非金属",
+                "note": ""
               }
             ]
           },
@@ -1466,7 +1869,29 @@
             "name": "元素周期表",
             "icon": "📊",
             "note": "7周期(短1-3，长4-7)；16族(7主+7副+Ⅷ+0)",
-            "reactions": [],
+            "reactions": [
+              {
+                "id": "ch4_r2",
+                "name": "Na与水",
+                "equation": "2Na + 2H₂O = 2NaOH + H₂↑",
+                "category": "与H₂O",
+                "note": "💯 同周期金属性Na>Mg>Al"
+              },
+              {
+                "id": "ch4_r3",
+                "name": "Mg与水",
+                "equation": "Mg + 2H₂O =(热水) Mg(OH)₂ + H₂↑",
+                "category": "与H₂O",
+                "note": "💯 Mg需要热水才反应"
+              },
+              {
+                "id": "ch4_r4",
+                "name": "Mg+Al+NaOH原电池",
+                "equation": "Mg+2H₂O →(NaOH) Mg(OH)₂+H₂↑",
+                "category": "原电池",
+                "note": "💯 Al作正极"
+              }
+            ],
             "knowledge": [
               {
                 "q": "元素周期表有____个周期，____个族",
@@ -1741,6 +2166,35 @@
                 "category": "漂白性",
                 "phenomenon": "品红溶液褪色，加热后恢复红色",
                 "note": "💯 可逆漂白！区别于Cl₂的不可逆漂白"
+              },
+              {
+                "id": "ch5_so2_a3",
+                "name": "SO₂+H₂O",
+                "equation": "SO₂ + H₂O ⇌ H₂SO₃",
+                "category": "与H₂O",
+                "note": "💯 亚硫酸，弱酸"
+              },
+              {
+                "id": "ch5_so2_o1",
+                "name": "2SO₂+O₂→2SO₃",
+                "equation": "2SO₂ + O₂ ⇌(催化剂/△) 2SO₃",
+                "category": "催化氧化",
+                "note": "💯 硫酸制造核心反应"
+              },
+              {
+                "id": "ch5_h2s1",
+                "name": "H₂S完全燃烧",
+                "equation": "2H₂S + 3O₂ =(点燃) 2H₂O + 2SO₂",
+                "category": "燃烧",
+                "note": ""
+              },
+              {
+                "id": "ch5_h2s2",
+                "name": "H₂S+SO₂",
+                "equation": "2H₂S + SO₂ = 3S↓ + 2H₂O",
+                "category": "氧化还原",
+                "phenomenon": "黄色沉淀",
+                "note": "💯 H₂S+SO₂→S+H₂O"
               }
             ]
           },
@@ -1860,6 +2314,13 @@
                 "equation": "NH₃ + CO₂ + NaCl + H₂O = NaHCO₃↓ + NH₄Cl",
                 "category": "侯氏制碱",
                 "note": "💯 侯德榜制碱法，先通NH₃再通CO₂"
+              },
+              {
+                "id": "ch5_nh3_cat1",
+                "name": "氨催化氧化",
+                "equation": "4NH₃ + 5O₂ →(Pt-Rh/△) 4NO + 6H₂O",
+                "category": "催化氧化",
+                "note": "💯 工业制硝酸第一步"
               }
             ]
           },
@@ -1941,6 +2402,13 @@
                 "equation": "SiO₂ + CaO =(高温) CaSiO₃",
                 "category": "与碱性氧化物",
                 "note": "玻璃工业"
+              },
+              {
+                "id": "ch5_si5",
+                "name": "SiO₂+HF(玻璃雕刻)",
+                "equation": "SiO₂ + 4HF = SiF₄↑ + 2H₂O",
+                "category": "与酸",
+                "note": "💯 HF腐蚀玻璃"
               }
             ],
             "knowledge": [
@@ -2331,6 +2799,13 @@
                 "category": "酯化",
                 "phenomenon": "产生有果香味的油状液体",
                 "note": "💯 酸脱羟基醇脱氢，浓硫酸催化吸水！必考"
+              },
+              {
+                "id": "ch7_et3",
+                "name": "乙醇催化氧化(制乙醛)",
+                "equation": "2CH₃CH₂OH + O₂ →(Cu或Ag/△) 2CH₃CHO + 2H₂O",
+                "category": "催化氧化",
+                "note": "💯 Cu→黑→红"
               }
             ]
           },
@@ -2383,7 +2858,15 @@
             "name": "蛋白质",
             "icon": "🥩",
             "note": "氨基酸→肽链；盐析(可逆)/变性(不可逆/加热/重金属盐)",
-            "reactions": []
+            "reactions": [
+              {
+                "id": "ch7_pr1",
+                "name": "浓硝酸使蛋白质变黄",
+                "equation": "蛋白质 + 浓HNO₃ →(△) 黄色",
+                "category": "检验",
+                "note": "💯 黄蛋白反应，检验含苯环蛋白质"
+              }
+            ]
           },
           {
             "id": "ch7_oil",
@@ -2675,6 +3158,21 @@
                 "equation": "H₂(g) + ½O₂(g) = H₂O(l)",
                 "category": "燃烧热",
                 "note": ""
+              },
+              {
+                "id": "ch9_neu1",
+                "name": "中和热(强酸+强碱)",
+                "equation": "H⁺ + OH⁻ = H₂O",
+                "category": "中和",
+                "note": "💯 ΔH=-57.3kJ/mol"
+              },
+              {
+                "id": "ch9_e3",
+                "name": "Ba(OH)₂·8H₂O+NH₄Cl",
+                "equation": "Ba(OH)₂·8H₂O + 2NH₄Cl = BaCl₂ + 2NH₃↑ + 10H₂O",
+                "category": "吸热",
+                "phenomenon": "温度降低，有刺激性气味",
+                "note": "💯 典型的吸热反应"
               }
             ],
             "knowledge": [
@@ -2943,6 +3441,27 @@
                 "equation": "Cu - 2e⁻ = Cu²⁺",
                 "category": "电镀",
                 "note": "镀层金属接阳极"
+              },
+              {
+                "id": "ch9_e10",
+                "name": "电解CuCl₂",
+                "equation": "CuCl₂ =(电解) Cu + Cl₂↑",
+                "category": "电解",
+                "note": "💯 阴极Cu析出，阳极Cl₂产生"
+              },
+              {
+                "id": "ch9_en1",
+                "name": "电解精炼铜(阴极)",
+                "equation": "Cu²⁺ + 2e⁻ = Cu",
+                "category": "电镀",
+                "note": "💯 纯铜作阴极"
+              },
+              {
+                "id": "ch9_en2",
+                "name": "电解精炼铜(阳极)",
+                "equation": "Cu - 2e⁻ = Cu²⁺",
+                "category": "电镀",
+                "note": "💯 粗铜作阳极,金/银/铂沉底"
               }
             ],
             "knowledge": [
@@ -3463,6 +3982,41 @@
                 "equation": "C₂H₅OH →(浓H₂SO₄/170℃) C₂H₄↑ + H₂O",
                 "category": "消去",
                 "note": "💯 170℃→烯"
+              },
+              {
+                "id": "ch11_oh5",
+                "name": "乙醇催化氧化→乙醛",
+                "equation": "2CH₃CH₂OH + O₂ →(Cu/△) 2CH₃CHO + 2H₂O",
+                "category": "催化氧化",
+                "note": "💯 Cu→CuO→Cu，交替"
+              },
+              {
+                "id": "ch11_oh6",
+                "name": "CH₃CH₂OH消去(制乙烯)",
+                "equation": "C₂H₅OH →(浓H₂SO₄/170℃) C₂H₄↑ + H₂O",
+                "category": "消去",
+                "note": "💯 170℃分子内脱水"
+              },
+              {
+                "id": "ch11_oh7",
+                "name": "甘油+HNO₃(制硝化甘油)",
+                "equation": "C₃H₅(OH)₃ + 3HNO₃ →(浓H₂SO₄) C₃H₅(ONO₂)₃ + 3H₂O",
+                "category": "酯化",
+                "note": "💯 炸药"
+              },
+              {
+                "id": "ch11_oh8",
+                "name": "2-丙醇催化氧化",
+                "equation": "2CH₃CHOHCH₃ + O₂ →(Cu/△) 2CH₃COCH₃ + 2H₂O",
+                "category": "催化氧化",
+                "note": "💯 仲醇→酮"
+              },
+              {
+                "id": "ch11_oh9",
+                "name": "甲醇+Na",
+                "equation": "2CH₃OH + 2Na = 2CH₃ONa + H₂↑",
+                "category": "与有机物",
+                "note": ""
               }
             ],
             "knowledge": []
@@ -3494,6 +4048,14 @@
                 "equation": "C₆H₅ONa + CO₂ + H₂O → C₆H₅OH + NaHCO₃",
                 "category": "复分解",
                 "note": "💯 酸性H₂CO₃>苯酚"
+              },
+              {
+                "id": "ch11_ph4",
+                "name": "苯酚+FeCl₃(显色)",
+                "equation": "6C₆H₅OH + FeCl₃ = H₃[Fe(OC₆H₅)₆] + 3HCl",
+                "category": "检验",
+                "phenomenon": "紫色",
+                "note": "💯 FeCl₃显色反应"
               }
             ],
             "knowledge": []
@@ -3534,6 +4096,41 @@
                 "category": "氧化",
                 "phenomenon": "砖红色沉淀",
                 "note": ""
+              },
+              {
+                "id": "ch11_ald1",
+                "name": "甲醛的银镜反应",
+                "equation": "HCHO + 4Ag(NH₃)₂OH →(△) (NH₄)₂CO₃ + 4Ag↓ + 6NH₃ + 2H₂O",
+                "category": "银镜",
+                "note": "💯 甲醛相当于含2个醛基"
+              },
+              {
+                "id": "ch11_ald2",
+                "name": "银氨溶液制备",
+                "equation": "AgNO₃ + NH₃·H₂O = AgOH↓ + NH₄NO₃",
+                "category": "制备",
+                "note": "💯 最初白色沉淀"
+              },
+              {
+                "id": "ch11_ald3",
+                "name": "银氨溶液继续",
+                "equation": "AgOH + 2NH₃·H₂O = [Ag(NH₃)₂]OH + 2H₂O",
+                "category": "制备",
+                "note": "💯 沉淀溶解→银氨溶液"
+              },
+              {
+                "id": "ch11_ald4",
+                "name": "乙醛+H₂(还原)",
+                "equation": "CH₃CHO + H₂ →(Ni/△) CH₃CH₂OH",
+                "category": "还原",
+                "note": "💯 醛基+H₂→醇"
+              },
+              {
+                "id": "ch11_ald5",
+                "name": "乙醛+O₂(氧化)",
+                "equation": "2CH₃CHO + O₂ →(催化剂/△) 2CH₃COOH",
+                "category": "氧化",
+                "note": "💯 乙醛→乙酸，工业制乙酸"
               }
             ],
             "knowledge": []
@@ -3664,6 +4261,13 @@
                 "equation": "nCH₂=CHCl →(催化剂) [CH₂-CHCl]ₙ",
                 "category": "加聚",
                 "note": "由氯乙烯加聚"
+              },
+              {
+                "id": "ch11_pol4",
+                "name": "酚醛树脂(线型→体型)",
+                "equation": "nC₆H₅OH + nHCHO →(催化剂) 线型→(BaCl₂/△) 体型树脂 + nH₂O",
+                "category": "缩聚",
+                "note": "💯 电木"
               }
             ],
             "knowledge": []
